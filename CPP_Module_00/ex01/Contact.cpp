@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 14:46:15 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/08 12:43:48 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/08 16:35:32 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,11 @@ void Contact::setDarkSecret(std::string darks)
 	DarkSecret = darks;
 };
 
+void Contact::setIndex(int ind)
+{
+	index = ind;
+};
+
 std::string Contact::getFname(void)
 {
 	return (FirstName);
@@ -70,4 +75,9 @@ std::string Contact::getPhoneNumber(void)
 std::string Contact::getDarkSecret(void)
 {
 	return (DarkSecret);
+};
+
+int Contact::getIndex(void)
+{
+	return (index);
 };

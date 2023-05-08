@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 14:53:58 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/08 15:41:16 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/08 17:28:22 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void printHeader(void)
 {
+	std::cout<<std::endl;
 	std::cout << " ----------weclome to phonebook----------"<<std::endl;
 	std::cout << "|                                        |"<<std::endl;
 	std::cout << "|        Please use this commands        |"<<std::endl;

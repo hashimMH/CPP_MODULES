@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 14:46:12 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/08 12:42:03 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/08 16:35:27 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,11 @@ class Contact
 		void setNickname(std::string nickname);
 		void setPhoneNumber(std::string phn);
 		void setDarkSecret(std::string darks);
+		void setIndex(int ind);
 		std::string getFname(void);
 		std::string getLname(void);
 		std::string getNickname(void);
 		std::string getPhoneNumber(void);
 		std::string getDarkSecret(void);
+		int getIndex(void);
 };
