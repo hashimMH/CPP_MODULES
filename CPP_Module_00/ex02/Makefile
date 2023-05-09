@@ -6,12 +6,12 @@
 #    By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/09 12:39:41 by hmohamed          #+#    #+#              #
-#    Updated: 2023/05/09 12:39:49 by hmohamed         ###   ########.fr        #
+#    Updated: 2023/05/09 14:06:04 by hmohamed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
-SRC = PhoneBook.cpp  \
+NAME = Account
+SRC = Account.cpp  \
 
 
 OBJ = $(SRC:.cpp=.o)
