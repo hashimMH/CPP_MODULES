@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 14:46:26 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/08 12:52:41 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/09 12:33:34 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@ class PhoneBook
 		~PhoneBook();
 		void set_contact(void);
 		void search(void);
+		void indexSearch(void);
 };

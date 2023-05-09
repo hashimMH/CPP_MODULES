@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 16:24:19 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/08 18:25:43 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/09 12:35:31 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,41 @@ void PhoneBook::set_contact(void)
 	counter++;
 };
 
+void PhoneBook::indexSearch(void)
+{
+	int i;
+	std::string val;
+	
+	i = 0;
+	if(counter > 0)
+	{
+		while (1)
+		{
+			val.clear();
+			std::cout << std::endl <<"Enter the index:";
+			std::getline(std::cin,val);
+			if(!std::cin.good())
+				break ;
+			i = std::stoi(val);
+			if(i >= 1 && i <= 8)
+			{
+				i--;
+				std::cout<<std::endl;
+				std::cout << "First Name  :"<< contact[i].getFname()<< std::endl;
+				std::cout << "Last Name   :"<< contact[i].getLname()<< std::endl;
+				std::cout << "Nickname    :"<< contact[i].getNickname()<< std::endl;
+				std::cout << "PhoneNumber :"<< contact[i].getPhoneNumber()<< std::endl;
+				std::cout << "DarkSecret  :"<< contact[i].getDarkSecret()<< std::endl;
+				break ;
+			}
+			else
+				std::cout << "Not valid entery" << std::endl;
+		}
+	}
+	else
+		std::cout <<std::endl << "List is empty !" << std::endl;
+}
+
 void PhoneBook::search(void)
 {
 	int i;
@@ -127,32 +162,5 @@ void PhoneBook::search(void)
 		}
 		i++;
 	}
-	if(counter > 0)
-	{
-		while (1)
-		{
-			i = 0;
-			val.clear();
-			std::cout << std::endl <<"Enter the index:";
-			std::getline(std::cin,val);
-			if(!std::cin.good())
-				break ;
-			i = atoi(val.c_str());
-			if(i >= 1 && i <= (counter % 8))
-			{
-				i--;
-				std::cout<<std::endl;
-				std::cout << "First Name  :"<< contact[i].getFname()<< std::endl;
-				std::cout << "Last Name   :"<< contact[i].getLname()<< std::endl;
-				std::cout << "Nickname    :"<< contact[i].getNickname()<< std::endl;
-				std::cout << "PhoneNumber :"<< contact[i].getPhoneNumber()<< std::endl;
-				std::cout << "DarkSecret  :"<< contact[i].getDarkSecret()<< std::endl;
-				break ;
-			}
-			else
-				std::cout << "Not valid entery" << std::endl;
-		}
-	}
-	else
-		std::cout <<std::endl << "List is empty !" << std::endl;
+	indexSearch();
 };

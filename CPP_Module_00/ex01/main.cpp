@@ -6,13 +6,13 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 14:53:58 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/08 17:28:22 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/09 12:38:23 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-void printHeader(void)
+static void printHeader(void)
 {
 	std::cout<<std::endl;
 	std::cout << " ----------weclome to phonebook----------"<<std::endl;
@@ -42,7 +42,6 @@ int main(void)
 			phns.search();
 		else
 			std::cout <<"Command not valid !" <<std::endl;
-		//std::cout << com <<std::endl;
 	}
 	return (0);
 }
