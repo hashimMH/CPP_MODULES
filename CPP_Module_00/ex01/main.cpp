@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 14:53:58 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/09 12:38:23 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/11 20:06:00 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int main(void)
 			phns.search();
 		else
 			std::cout <<"Command not valid !" <<std::endl;
+		if(!std::cin.good())
+			break ;
 	}
 	return (0);
 }

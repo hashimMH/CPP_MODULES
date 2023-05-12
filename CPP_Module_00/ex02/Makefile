@@ -6,12 +6,13 @@
 #    By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/09 12:39:41 by hmohamed          #+#    #+#              #
-#    Updated: 2023/05/09 14:06:04 by hmohamed         ###   ########.fr        #
+#    Updated: 2023/05/12 18:06:19 by hmohamed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Account
 SRC = Account.cpp  \
+			tests.cpp \
 
 
 OBJ = $(SRC:.cpp=.o)

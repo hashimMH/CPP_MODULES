@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 16:24:19 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/09 12:35:31 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/12 19:18:59 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void PhoneBook::set_contact(void)
 	val.clear();
 	while (1)
 	{
+		if (!std::cin.good())
+			return ;
 		std::cout << "Enter the last name:"<< std::endl;
 		std::getline(std::cin, val);
 		if (!val.empty() || !std::cin.good())
@@ -48,6 +50,8 @@ void PhoneBook::set_contact(void)
 	val.clear();
 	while (1)
 	{
+		if (!std::cin.good())
+			return ;
 		std::cout << "Enter the nickname:"<< std::endl;
 		std::getline(std::cin, val);
 		if (!val.empty() || !std::cin.good())
@@ -58,6 +62,8 @@ void PhoneBook::set_contact(void)
 	val.clear();
 	while (1)
 	{
+		if (!std::cin.good())
+			return ;
 		std::cout << "Enter the phone number:"<< std::endl;
 		std::getline(std::cin, val);
 		if (!val.empty() || !std::cin.good())
@@ -68,6 +74,8 @@ void PhoneBook::set_contact(void)
 	val.clear();
 	while (1)
 	{
+		if (!std::cin.good())
+			return ;
 		std::cout << "Enter the darkest secret:"<< std::endl;
 		std::getline(std::cin, val);
 		if (!val.empty() || !std::cin.good())
@@ -80,23 +88,38 @@ void PhoneBook::set_contact(void)
 	counter++;
 };
 
+static bool isDigit(std::string s)
+{
+	for(int i = 0; i < (int)s.length(); i++)
+	{
+		if(s[i] < '0' || s[i] > '9')
+			return (false);
+	}
+	return (true);
+};
+
 void PhoneBook::indexSearch(void)
 {
 	int i;
 	std::string val;
+	std::string ind;
 	
 	i = 0;
 	if(counter > 0)
 	{
 		while (1)
 		{
-			val.clear();
+			ind.clear();
 			std::cout << std::endl <<"Enter the index:";
-			std::getline(std::cin,val);
+			std::getline(std::cin, ind);
 			if(!std::cin.good())
 				break ;
-			i = std::stoi(val);
-			if(i >= 1 && i <= 8)
+			if(isDigit(ind))
+			{
+				std::stringstream degree(ind);;
+				degree >> i;
+			}
+			if(i >= 1 && i <= 8 && i <= counter)
 			{
 				i--;
 				std::cout<<std::endl;
