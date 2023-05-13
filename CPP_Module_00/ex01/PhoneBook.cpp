@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 16:24:19 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/12 19:18:59 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/13 18:51:53 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void PhoneBook::set_contact(void)
 			break ;
 		std::cout << "Feild cannot be empty !!"<< std::endl;
 	}
+	val.erase(remove_if(val.begin(), val.end(), isspace), val.end());
 	contact[counter % 8].setFname(val);
 	val.clear();
 	while (1)
@@ -46,6 +47,7 @@ void PhoneBook::set_contact(void)
 			break ;
 		std::cout << "Feild cannot be empty !!"<< std::endl;
 	}
+	val.erase(remove_if(val.begin(), val.end(), isspace), val.end());
 	contact[counter % 8].setLname(val);
 	val.clear();
 	while (1)
@@ -58,6 +60,7 @@ void PhoneBook::set_contact(void)
 			break ;
 		std::cout << "Feild cannot be empty !!"<< std::endl;
 	}
+	val.erase(remove_if(val.begin(), val.end(), isspace), val.end());
 	contact[counter % 8].setNickname(val);
 	val.clear();
 	while (1)
@@ -70,6 +73,7 @@ void PhoneBook::set_contact(void)
 			break ;
 		std::cout << "Feild cannot be empty !!"<< std::endl;
 	}
+	val.erase(remove_if(val.begin(), val.end(), isspace), val.end());
 	contact[counter % 8].setPhoneNumber(val);
 	val.clear();
 	while (1)
@@ -82,6 +86,7 @@ void PhoneBook::set_contact(void)
 			break ;
 		std::cout << "Feild cannot be empty !!"<< std::endl;
 	}
+	val.erase(remove_if(val.begin(), val.end(), isspace), val.end());
 	contact[counter % 8].setDarkSecret(val);
 	val.clear();
 	contact[counter % 8].setIndex((counter % 8) + 1);

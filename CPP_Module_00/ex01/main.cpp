@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 14:53:58 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/11 20:06:00 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/13 18:55:30 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,26 +24,30 @@ static void printHeader(void)
 	std::cout << " ---------------------------------------- "<<std::endl;
 }
 
-int main(void)
+int main(int ac, char **av)
 {
 	PhoneBook phns;
 	std::string com;
 	
-	while (1)
+	(void)av;
+	if(ac == 1)
 	{
-		printHeader();
-		std::cout <<"Enter the command : ";
-		std::getline(std::cin, com);
-		if(com == "EXIT" || !std::cin.good())
-			break ;
-		else if(com == "ADD")
-			phns.set_contact();
-		else if(com == "SEARCH")
-			phns.search();
-		else
-			std::cout <<"Command not valid !" <<std::endl;
-		if(!std::cin.good())
-			break ;
+		while (1)
+		{
+			printHeader();
+			std::cout <<"Enter the command : ";
+			std::getline(std::cin, com);
+			if(com == "EXIT" || !std::cin.good())
+				break ;
+			else if(com == "ADD")
+				phns.set_contact();
+			else if(com == "SEARCH")
+				phns.search();
+			else
+				std::cout <<"Command not valid !" <<std::endl;
+			if(!std::cin.good())
+				break ;
+		}
 	}
 	return (0);
 }

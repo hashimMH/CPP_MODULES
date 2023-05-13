@@ -6,11 +6,11 @@
 #    By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/05 15:38:35 by hmohamed          #+#    #+#              #
-#    Updated: 2023/05/08 13:04:36 by hmohamed         ###   ########.fr        #
+#    Updated: 2023/05/13 18:43:55 by hmohamed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
+NAME = PhoneBook
 SRC = PhoneBook.cpp  \
 		main.cpp	\
 		Contact.cpp \
