@@ -6,11 +6,12 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 14:02:02 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/12 22:25:45 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/17 00:58:44 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
+#include <ctime>
 
 int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
@@ -22,7 +23,7 @@ Account::Account( int initial_deposit )
 	_nbDeposits = 0;
 	_nbWithdrawals = 0;
 	_amount = initial_deposit;
-	_totalAmount += initial_deposit; 
+	_totalAmount += initial_deposit;
 	_accountIndex = _nbAccounts;
 	_nbAccounts++;
 	_displayTimestamp();
@@ -57,11 +58,10 @@ int	Account::getNbWithdrawals( void )
 
 void	Account::_displayTimestamp( void )
 {
-    std::time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-    std::tm* localTime = std::localtime(&time);
+    std::time_t current_time = std::time(NULL);
     
     char timestamp[20];
-    std::strftime(timestamp, sizeof(timestamp), "%Y%m%d_%H%M%S", localTime);
+    std::strftime(timestamp, sizeof(timestamp), "%Y%m%d_%H%M%S", std::localtime(&current_time));
     std::cout << "[" << timestamp << "] ";
 };
 
@@ -74,7 +74,7 @@ void	Account::displayAccountsInfos( void )
 void	Account::makeDeposit( int deposit )
 {
 	_displayTimestamp();
-	std::cout << "index:"<< _accountIndex << ";p_amount:" << _amount << ";deposits:" << deposit;
+	std::cout << "index:"<< _accountIndex << ";p_amount:" << _amount << ";deposit:" << deposit;
 	_amount += deposit;
 	_totalAmount += deposit;
 	_nbDeposits++;

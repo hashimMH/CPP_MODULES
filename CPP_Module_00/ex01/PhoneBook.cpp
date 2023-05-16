@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 16:24:19 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/13 18:51:53 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/13 21:33:31 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,15 @@ PhoneBook::~PhoneBook()
 {
 	
 };
+static bool issp(std::string sd)
+{
+	for(int i = 0; sd[i]; i++)
+	{
+		if(sd[i] != ' ' && sd[i] != '\t')
+			return(false);
+	}
+	return (true);
+}
 
 void PhoneBook::set_contact(void)
 {
@@ -30,11 +39,10 @@ void PhoneBook::set_contact(void)
 	{
 		std::cout << "Enter the first name:"<< std::endl;
 		std::getline(std::cin, val);
-		if (!val.empty() || !std::cin.good())
+		if ((!val.empty() && !issp(val)) || !std::cin.good())
 			break ;
 		std::cout << "Feild cannot be empty !!"<< std::endl;
 	}
-	val.erase(remove_if(val.begin(), val.end(), isspace), val.end());
 	contact[counter % 8].setFname(val);
 	val.clear();
 	while (1)
@@ -43,11 +51,10 @@ void PhoneBook::set_contact(void)
 			return ;
 		std::cout << "Enter the last name:"<< std::endl;
 		std::getline(std::cin, val);
-		if (!val.empty() || !std::cin.good())
+		if ((!val.empty() && !issp(val)) || !std::cin.good())
 			break ;
 		std::cout << "Feild cannot be empty !!"<< std::endl;
 	}
-	val.erase(remove_if(val.begin(), val.end(), isspace), val.end());
 	contact[counter % 8].setLname(val);
 	val.clear();
 	while (1)
@@ -56,11 +63,10 @@ void PhoneBook::set_contact(void)
 			return ;
 		std::cout << "Enter the nickname:"<< std::endl;
 		std::getline(std::cin, val);
-		if (!val.empty() || !std::cin.good())
+		if ((!val.empty() && !issp(val)) || !std::cin.good())
 			break ;
 		std::cout << "Feild cannot be empty !!"<< std::endl;
 	}
-	val.erase(remove_if(val.begin(), val.end(), isspace), val.end());
 	contact[counter % 8].setNickname(val);
 	val.clear();
 	while (1)
@@ -69,11 +75,10 @@ void PhoneBook::set_contact(void)
 			return ;
 		std::cout << "Enter the phone number:"<< std::endl;
 		std::getline(std::cin, val);
-		if (!val.empty() || !std::cin.good())
+		if ((!val.empty() && !issp(val)) || !std::cin.good())
 			break ;
 		std::cout << "Feild cannot be empty !!"<< std::endl;
 	}
-	val.erase(remove_if(val.begin(), val.end(), isspace), val.end());
 	contact[counter % 8].setPhoneNumber(val);
 	val.clear();
 	while (1)
@@ -82,11 +87,10 @@ void PhoneBook::set_contact(void)
 			return ;
 		std::cout << "Enter the darkest secret:"<< std::endl;
 		std::getline(std::cin, val);
-		if (!val.empty() || !std::cin.good())
+		if ((!val.empty() && !issp(val)) || !std::cin.good())
 			break ;
 		std::cout << "Feild cannot be empty !!"<< std::endl;
 	}
-	val.erase(remove_if(val.begin(), val.end(), isspace), val.end());
 	contact[counter % 8].setDarkSecret(val);
 	val.clear();
 	contact[counter % 8].setIndex((counter % 8) + 1);
