@@ -6,7 +6,19 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 01:49:01 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/17 01:51:22 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/17 18:00:36 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Harl.hpp"
+
+int main (int ac, char **av)
+{
+	if(ac == 2)
+	{
+		Harl harl;
+		harl.complain(av[1]);
+	}
+
+	return (0);
+}

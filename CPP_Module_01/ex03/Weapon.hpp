@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 21:19:37 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/16 23:22:31 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/17 21:21:44 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ class Weapon
 		std::string type;
 
 	public:
-		Weapon(std::string wp);
+		Weapon(void);
+		Weapon(const std::string& weaponType);
 		~Weapon();
-		const std::string getType(void);
-		void setType(std::string tp);
-	Weapon(void);
+	    const std::string& getType() const ;
+	    void setType(const std::string& newType);
 };
 
 #endif 

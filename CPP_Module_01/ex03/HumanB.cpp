@@ -6,16 +6,15 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 21:19:24 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/16 23:55:41 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/17 21:32:42 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string nam)
+HumanB::HumanB(const std::string& humanName) : Name(humanName), WeaponB(NULL) 
 {
-	Name = nam;
-	WeaponB = NULL;
+
 };
 HumanB::~HumanB()
 {
