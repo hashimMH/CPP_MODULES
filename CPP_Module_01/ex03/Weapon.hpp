@@ -6,15 +6,14 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 21:19:37 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/17 21:21:44 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/17 21:48:58 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "iostream"
 
 #ifndef WEAPON_HPP
 #define WEAPON_HPP
 
+#include "iostream"
 
 class Weapon
 {
@@ -25,7 +24,7 @@ class Weapon
 		Weapon(void);
 		Weapon(const std::string& weaponType);
 		~Weapon();
-	    const std::string& getType() const ;
+	    const std::string& getType() const;
 	    void setType(const std::string& newType);
 };
 

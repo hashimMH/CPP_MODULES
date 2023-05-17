@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 21:19:20 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/17 21:32:14 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/17 21:58:01 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ class HumanB
 		Weapon *WeaponB;
 
 	public:
-		HumanB(const std::string& humanName);
+		HumanB(const std::string& nam);
 		~HumanB();
-    	void setWeapon(Weapon wb);
+    	void setWeapon(Weapon &wb);
 		void attack(void); 
 };
