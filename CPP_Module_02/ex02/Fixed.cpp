@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 14:47:46 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/22 14:51:17 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/23 18:47:30 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,27 +101,27 @@ Fixed Fixed::operator/(const Fixed &sec) const
 
 Fixed& Fixed::operator++()
 {
-	x += (1 << y);
+	x++;
     return *this;
 };
 
 Fixed Fixed::operator++(int)
 {
 	Fixed tmp(*this);
-	x += (1 << y);
+	 ++(*this);
     return tmp;
 };
 
 Fixed& Fixed::operator--()
 {
-	x -= (1 << y);
+	x--;;
     return *this;
 };
 
 Fixed Fixed::operator--(int)
 {
 	Fixed tmp(*this);
-	x -= (1 << y);
+	 --(*this);
     return tmp;
 };
 
@@ -148,3 +148,23 @@ int Fixed::toInt( void ) const
 {
 	return (x >> y);
 };
+
+Fixed& Fixed::min(Fixed& a, Fixed& b)
+{
+    return (a < b) ? a : b;
+}
+
+Fixed& Fixed::max(Fixed& a, Fixed& b)
+{
+    return (a < b) ? b : a;
+}
+
+const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
+{
+    return (a < b) ? a : b;
+}
+
+const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
+{
+    return (a < b) ? b : a;
+}

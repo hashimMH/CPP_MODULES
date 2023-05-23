@@ -6,11 +6,12 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 14:47:51 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/22 14:51:37 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/23 18:47:42 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cmath>
 
 class Fixed
 {
@@ -45,6 +46,10 @@ class Fixed
 		int toInt( void ) const;
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
+		static Fixed& max(Fixed& a, Fixed& b);
+		static Fixed& min(Fixed& a, Fixed& b);
+		static const Fixed& max(const Fixed& a, const Fixed& b);
+		static const Fixed& min(const Fixed& a, const Fixed& b);
 
 		friend std::ostream& operator<<(std::ostream& os, const Fixed& op)
 		{
