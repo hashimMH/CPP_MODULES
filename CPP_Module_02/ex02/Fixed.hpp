@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 14:47:51 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/23 18:47:42 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/29 19:10:58 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,7 @@ class Fixed
 		static const Fixed& max(const Fixed& a, const Fixed& b);
 		static const Fixed& min(const Fixed& a, const Fixed& b);
 
-		friend std::ostream& operator<<(std::ostream& os, const Fixed& op)
-		{
-			os << op.toFloat();
-			return (os);
-		};
+		
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& op);

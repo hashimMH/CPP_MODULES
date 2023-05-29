@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 14:47:46 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/20 17:55:37 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/29 20:53:31 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Fixed::Fixed():x(0)
 
 Fixed::Fixed(const Fixed& cp):x(cp.x)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "Copy constructor called" << std::endl;
 };
 
 Fixed& Fixed::operator=(const Fixed& cp)

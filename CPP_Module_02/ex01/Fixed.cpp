@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 14:47:46 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/22 14:28:54 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/29 19:15:56 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,10 @@ float Fixed::toFloat(void) const
 int Fixed::toInt(void) const
 {
 	return (x >> y);
+};
+
+std::ostream& operator<<(std::ostream& os, const Fixed& op)
+{
+	os << op.toFloat();
+	return (os);
 };

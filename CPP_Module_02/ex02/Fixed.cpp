@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 14:47:46 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/23 18:47:30 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/29 19:10:50 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,3 +168,9 @@ const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
 {
     return (a < b) ? b : a;
 }
+
+std::ostream& operator<<(std::ostream& os, const Fixed& op)
+{
+	os << op.toFloat();
+	return (os);
+};
