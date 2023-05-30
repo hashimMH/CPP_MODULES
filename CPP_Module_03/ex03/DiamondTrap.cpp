@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:07:21 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/30 19:42:30 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/30 20:00:18 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ DiamondTrap::DiamondTrap(std::string nm)
 	std::cout << "DiamondTrap constructor called" << std::endl;
 };
 
-DiamondTrap::DiamondTrap(const DiamondTrap& cp)
+DiamondTrap::DiamondTrap(const DiamondTrap& cp):ClapTrap(cp) , ScavTrap(cp), FragTrap(cp)
 {
 	if(cp.Name.empty() != true)
 		ClapTrap::Name = cp.Name + "_clap_name";

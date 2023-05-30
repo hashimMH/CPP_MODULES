@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 17:06:41 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/30 19:54:25 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/30 20:00:53 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ScavTrap::ScavTrap(std::string nm)
 	this->AttackDamage = 20;
 	std::cout << "ScavTrap constructor called" << std::endl;
 };
-ScavTrap::ScavTrap(const ScavTrap& cp):ClapTrap()
+ScavTrap::ScavTrap(const ScavTrap& cp):ClapTrap(cp)
 {
 	this->Name = cp.Name;
 	this->HitPoints = cp.HitPoints;

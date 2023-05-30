@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 21:20:16 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/30 18:10:29 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/30 20:00:47 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ FragTrap::FragTrap(std::string nm)
 	this->AttackDamage = 30;
 	std::cout << "FragTrap constructor called" << std::endl;
 };
-FragTrap::FragTrap(const FragTrap& cp)
+FragTrap::FragTrap(const FragTrap& cp): ClapTrap(cp)
 {
 	this->Name = cp.Name;
 	this->HitPoints = cp.HitPoints;
