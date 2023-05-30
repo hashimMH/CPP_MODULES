@@ -6,23 +6,33 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 17:06:41 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/30 19:54:25 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/05/30 19:37:00 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
+ScavTrap::ScavTrap()
+{
+	this->Name = "";
+	this->EnergyPoints = 50;
+	this->HitPoints = 100;
+	this->AttackDamage = 20;
+	std::cout << "ScavTrap constructor called" << std::endl;
+};
 
 ScavTrap::ScavTrap(std::string nm)
 {
+	ClapTrap::Name = nm;
 	this->Name = nm;
 	this->EnergyPoints = 50;
 	this->HitPoints = 100;
 	this->AttackDamage = 20;
 	std::cout << "ScavTrap constructor called" << std::endl;
 };
-ScavTrap::ScavTrap(const ScavTrap& cp):ClapTrap()
+ScavTrap::ScavTrap(const ScavTrap& cp)
 {
+	ClapTrap::Name = cp.Name;
 	this->Name = cp.Name;
 	this->HitPoints = cp.HitPoints;
 	this->EnergyPoints = cp.EnergyPoints;
@@ -32,6 +42,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& cp)
 {
 	if(this != &cp)
 	{
+		ClapTrap::Name = cp.Name;
 		this->Name = cp.Name;
 		this->HitPoints = cp.HitPoints;
 		this->EnergyPoints = cp.EnergyPoints;

@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/29 17:07:02 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/30 19:47:03 by hmohamed         ###   ########.fr       */
+/*   Created: 2023/05/29 17:06:38 by hmohamed          #+#    #+#             */
+/*   Updated: 2023/05/30 18:49:00 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-int main()
+#include "ClapTrap.hpp"
+
+class ScavTrap : virtual public ClapTrap
 {
-	std::cout << "\033[34mConstructor\033[0m" << std::endl;
-	FragTrap hash("hashim");
-	std::cout << "\033[34mTesting\033[0m" << std::endl;
-	hash.attack("yassen");
-	hash.takeDamage(5);
-	hash.highFivesGuys();
-	hash.beRepaired(4);
-		std::cout << "\033[34mDistructor\033[0m" << std::endl;
-	return (0);
-}
+	
+	public:
+		ScavTrap();
+		ScavTrap(std::string nm);
+		ScavTrap(const ScavTrap& cp);
+		ScavTrap& operator=(const ScavTrap& cp);
+		~ScavTrap();
+		void	guardGate();
+		void	attack(const std::string& target);
+};
+
+#endif

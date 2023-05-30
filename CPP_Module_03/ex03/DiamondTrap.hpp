@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/29 17:07:02 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/30 19:47:03 by hmohamed         ###   ########.fr       */
+/*   Created: 2023/05/30 15:07:25 by hmohamed          #+#    #+#             */
+/*   Updated: 2023/05/30 16:35:21 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
+
+#include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
-int main()
+class DiamondTrap : public ScavTrap , public FragTrap
 {
-	std::cout << "\033[34mConstructor\033[0m" << std::endl;
-	FragTrap hash("hashim");
-	std::cout << "\033[34mTesting\033[0m" << std::endl;
-	hash.attack("yassen");
-	hash.takeDamage(5);
-	hash.highFivesGuys();
-	hash.beRepaired(4);
-		std::cout << "\033[34mDistructor\033[0m" << std::endl;
-	return (0);
-}
+	private: 
+		std::string Name;
+	
+	public:
+		DiamondTrap();
+		DiamondTrap(std::string nm);
+		DiamondTrap(const DiamondTrap& cp);
+		DiamondTrap& operator=(const DiamondTrap& cp);
+		~DiamondTrap();
+		void	whoAmI();
+		void	attack(const std::string& target);
+};
+
+#endif
