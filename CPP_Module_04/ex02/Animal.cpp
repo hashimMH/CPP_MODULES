@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:03:15 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/31 18:46:03 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/06/02 14:06:58 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,6 @@ Animal::~Animal()
 {
 	std::cout << "Animal Destructor called" << std::endl;
 };
-
-// void	Animal::makeSound() const
-// {
-// 	if(type == "Cat")
-// 	{
-// 		std::cout << "Meaaaaawwwwwww" << std::endl;
-// 	}
-// 	else if( type == "Dog")
-// 	{
-// 		std::cout << "hooooow howww" << std::endl;
-// 	}
-// 	else
-// 		std::cout << "Unknown sound" << std::endl;
-// };
 
 std::string	Animal::getType() const
 {
