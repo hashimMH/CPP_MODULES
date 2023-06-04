@@ -6,12 +6,20 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 17:06:41 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/30 20:00:41 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/06/04 19:04:51 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
+ScavTrap::ScavTrap()
+{
+	this->Name = "";
+	this->EnergyPoints = 50;
+	this->HitPoints = 100;
+	this->AttackDamage = 20;
+	std::cout << "ScavTrap constructor called" << std::endl;
+};
 
 ScavTrap::ScavTrap(std::string nm)
 {

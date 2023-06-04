@@ -6,12 +6,21 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 21:20:16 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/30 20:00:47 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/06/04 18:55:01 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
+
+FragTrap::FragTrap()
+{
+	this->Name = "";
+	this->EnergyPoints = 100;
+	this->HitPoints = 100;
+	this->AttackDamage = 30;
+	std::cout << "FragTrap constructor called" << std::endl;
+};
 
 FragTrap::FragTrap(std::string nm)
 {

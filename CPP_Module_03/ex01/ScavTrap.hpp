@@ -6,9 +6,12 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 17:06:38 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/29 20:58:01 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/06/03 20:07:30 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 #include "ClapTrap.hpp"
 
@@ -24,3 +27,5 @@ class ScavTrap : public ClapTrap
 		void	guardGate();
 		void	attack(const std::string& target);
 };
+
+#endif

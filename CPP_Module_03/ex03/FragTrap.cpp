@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 21:20:16 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/30 20:00:32 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/06/04 19:08:34 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ FragTrap::FragTrap()
 	this->EnergyPoints = 100;
 	this->HitPoints = 100;
 	this->AttackDamage = 30;
-	std::cout << "FragTrap constructor called" << std::endl;
+	std::cout << "FragTrap default constructor called" << std::endl;
 };
 
 FragTrap::FragTrap(std::string nm)
@@ -30,6 +30,7 @@ FragTrap::FragTrap(std::string nm)
 	this->AttackDamage = 30;
 	std::cout << "FragTrap constructor called" << std::endl;
 };
+
 FragTrap::FragTrap(const FragTrap& cp):ClapTrap(cp)
 {
 	ClapTrap::Name = cp.Name;
@@ -37,7 +38,9 @@ FragTrap::FragTrap(const FragTrap& cp):ClapTrap(cp)
 	this->HitPoints = cp.HitPoints;
 	this->EnergyPoints = cp.EnergyPoints;
 	this->AttackDamage = cp.AttackDamage;
+	std::cout << "FragTrap copy constructor called" << std::endl;
 };
+
 FragTrap& FragTrap::operator=(const FragTrap& cp)
 {
 	if(this != &cp)
