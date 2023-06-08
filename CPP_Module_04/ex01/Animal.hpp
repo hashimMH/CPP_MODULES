@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:43:01 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/31 18:18:57 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/06/08 13:11:28 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Animal
 		Animal& operator=(const Animal& cp);
 		virtual ~Animal();
 		std::string	getType() const;
-		void		makeSound() const;
+		virtual void	makeSound() const;
 };
 
 #endif

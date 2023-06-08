@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 15:52:03 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/05/31 17:53:54 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/06/06 14:47:45 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,9 @@ Dog& Dog::operator=(const Dog& cp)
 Dog::~Dog()
 {
 	std::cout << "Dog Destructor called" << std::endl;
+};
+
+void	Dog::makeSound() const
+{
+	std::cout << "hooooow howww" << std::endl;
 };

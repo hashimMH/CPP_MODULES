@@ -6,7 +6,7 @@
 #    By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/27 19:51:30 by hmohamed          #+#    #+#              #
-#    Updated: 2023/05/31 17:28:31 by hmohamed         ###   ########.fr        #
+#    Updated: 2023/06/08 12:13:17 by hmohamed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,8 @@ SRC = main.cpp    	    \
 		Animal.cpp       \
 		Cat.cpp          \
 		Dog.cpp          \
+		WrongAnimal.cpp       \
+		WrongCat.cpp          \
 
 OBJ = $(SRC:.cpp=.o)
 CPP = c++

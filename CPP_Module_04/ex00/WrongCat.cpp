@@ -1,45 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 14:03:15 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/06/08 13:10:36 by hmohamed         ###   ########.fr       */
+/*   Created: 2023/06/08 12:05:40 by hmohamed          #+#    #+#             */
+/*   Updated: 2023/06/08 12:11:17 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongCat.hpp"
 
-Animal::Animal()
+WrongCat::WrongCat()
 {
-	type = "";
-	std::cout << "Animal constructor called" << std::endl;
+	type = "Cat";
+	std::cout << "Cat constructor called" << std::endl;
 };
 
-Animal::Animal(const Animal& cp)
+WrongCat::WrongCat(const WrongCat& cp):WrongAnimal(cp)
 {
 	type = cp.type;
 };
 
-Animal& Animal::operator=(const Animal& cp)
+WrongCat& WrongCat::operator=(const WrongCat& cp)
 {
 	type = cp.type;
 	return (*this);
 };
 
-Animal::~Animal()
+WrongCat::~WrongCat()
 {
-	std::cout << "Animal Destructor called" << std::endl;
+	std::cout << "Cat Destructor called" << std::endl;
 };
 
-void	Animal::makeSound() const
+void	WrongCat::makeSound() const
 {
-	std::cout << "Unknown sound" << std::endl;
-};
 
-std::string	Animal::getType() const
-{
-	return (type);
+	std::cout << "Meaaaaawwwwwww" << std::endl;
 };

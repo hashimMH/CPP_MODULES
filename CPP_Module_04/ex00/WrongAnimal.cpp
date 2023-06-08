@@ -1,45 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 14:03:15 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/06/08 13:10:36 by hmohamed         ###   ########.fr       */
+/*   Created: 2023/06/08 12:05:46 by hmohamed          #+#    #+#             */
+/*   Updated: 2023/06/08 12:07:53 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-Animal::Animal()
+WrongAnimal::WrongAnimal()
 {
 	type = "";
 	std::cout << "Animal constructor called" << std::endl;
 };
 
-Animal::Animal(const Animal& cp)
+WrongAnimal::WrongAnimal(const WrongAnimal& cp)
 {
 	type = cp.type;
 };
 
-Animal& Animal::operator=(const Animal& cp)
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal& cp)
 {
 	type = cp.type;
 	return (*this);
 };
 
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
 	std::cout << "Animal Destructor called" << std::endl;
 };
 
-void	Animal::makeSound() const
+void	WrongAnimal::makeSound() const
 {
 	std::cout << "Unknown sound" << std::endl;
 };
 
-std::string	Animal::getType() const
+std::string	WrongAnimal::getType() const
 {
 	return (type);
 };
