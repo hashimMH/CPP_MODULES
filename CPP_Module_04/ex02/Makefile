@@ -6,19 +6,17 @@
 #    By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/27 19:51:30 by hmohamed          #+#    #+#              #
-#    Updated: 2023/05/31 18:37:02 by hmohamed         ###   ########.fr        #
+#    Updated: 2023/06/08 12:24:54 by hmohamed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = AAnimal
+NAME = Animal
 SRC = main.cpp    	    \
+		Animal.cpp       \
 		Cat.cpp          \
-		Animal.cpp      \
 		Dog.cpp          \
-		Brain.cpp      \
-		
-		
+		Brain.cpp       \
 
 OBJ = $(SRC:.cpp=.o)
 CPP = c++

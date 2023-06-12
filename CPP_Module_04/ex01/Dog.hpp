@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 15:52:06 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/06/08 12:26:21 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/06/12 13:06:52 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ class Dog : public Animal
 		Dog& operator=(const Dog& cp);
 		~Dog();
 		void		makeSound() const;
+		std::string& getIdia(int index);
+		void setIdia(std::string ida, int ind);
 	
 };
 

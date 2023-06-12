@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:40:58 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/06/08 13:05:28 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/06/12 13:20:23 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,26 +34,35 @@ int main()
 
 	// return 0; 
 
-	 Animal* animals[10];
+	//  Animal* animals[10];
 
-    for (int i = 0; i < 5; i++) {
-        animals[i] = new Dog();
-    }
+    // for (int i = 0; i < 5; i++) {
+    //     animals[i] = new Dog();
+    // }
 
-    for (int i = 5; i < 10; i++) {
-        animals[i] = new Cat();
-    }
+    // for (int i = 5; i < 10; i++) {
+    //     animals[i] = new Cat();
+    // }
 
- 	for (int i = 0; i < 10; i++) {
-        animals[i]->makeSound();
-    }
-    for (int i = 0; i < 10; i++) {
-		 Animal* animalCopy = animals[i];
-        animalCopy->makeSound();
+ 	// for (int i = 0; i < 10; i++) {
+    //     animals[i]->makeSound();
+    // }
+    // for (int i = 0; i < 10; i++) {
+		
 
-       // delete animalCopy;
-        delete animals[i];
-    }
+    //    // delete animalCopy;
+    //     delete animals[i];
+    // }
 
+	//  Animal* animalCopy = [i];
+    //     animalCopy->makeSound();
+
+	Dog *a = new Dog();
+	a->setIdia("hash", 0);
+	std::cout<< a->getIdia(0)<<std::endl;
+	Dog b(*a);
+	delete a;
+	b.makeSound();
+	std::cout<< b.getIdia(0)<<std::endl;
     return 0;
 }
