@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:40:58 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/06/12 13:20:23 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/06/12 16:24:59 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,7 @@ int main()
 	delete a;
 	b.makeSound();
 	std::cout<< b.getIdia(0)<<std::endl;
+	// Dog b;
+	// Dog tmp = b;
     return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 17:30:04 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/06/12 13:22:27 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/06/12 16:09:08 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 Brain::Brain()
 {
+	
 	std::cout << "Brain constructor called" << std::endl;
 };
 
