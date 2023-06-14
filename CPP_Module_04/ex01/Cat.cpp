@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 15:52:09 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/06/12 16:23:48 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/06/14 19:42:10 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ Cat::Cat(const Cat& cp):Animal(cp)
 Cat& Cat::operator=(const Cat& cp)
 {
 	std::cout << "Cat copy assignment operator called" << std::endl;
+	delete br;
 	br = new Brain();
     *br = *cp.br;
 	type = cp.type;

@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 15:52:03 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/06/12 16:22:19 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/06/14 19:40:53 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ Dog::Dog(const Dog& cp):Animal(cp)
 Dog& Dog::operator=(const Dog& cp)
 {
 	std::cout << "Dog copy assignment operator called" << std::endl;
+	delete br;
 	br = new Brain();
     *br = *cp.br;
 	type = cp.type;
@@ -54,7 +55,7 @@ std::string& Dog::getIdia(int index)
 
 void Dog::setIdia(std::string ida, int ind)
 {
-	if(ind < 0 || ind > 99)
+	if (ind < 0 || ind > 99)
 		return ;
-		br->setIdia(ida, ind);
+	br->setIdia(ida, ind);
 };
