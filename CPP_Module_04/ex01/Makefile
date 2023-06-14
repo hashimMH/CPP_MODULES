@@ -6,7 +6,7 @@
 #    By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/27 19:51:30 by hmohamed          #+#    #+#              #
-#    Updated: 2023/06/14 19:37:31 by hmohamed         ###   ########.fr        #
+#    Updated: 2023/06/14 19:44:29 by hmohamed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRC = main.cpp    	    \
 
 OBJ = $(SRC:.cpp=.o)
 CPP = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 
 
 all: $(NAME)
 
