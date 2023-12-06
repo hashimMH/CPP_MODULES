@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:32:38 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/11/23 16:20:58 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/06 22:45:06 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,11 @@ int Bureaucrat::getGrade(void) const
 {
 	return this->grade;
 };
+
+void Bureaucrat::executeForm(const AForm &form) const
+{
+	form.execute(*this);
+}
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& op)
 {

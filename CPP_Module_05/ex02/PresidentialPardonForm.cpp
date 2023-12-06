@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 18:14:53 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/03 21:03:05 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/06 23:02:07 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,19 @@ void PresidentialPardonForm::beSigned(Bureaucrat &br) const
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
-	if(executor.getGrade() < grades || executor.getGrade() < gradex)
+	if (executor.getGrade() > getGrades())
+	{
+		std::cout << "Cannot execute, form not signed." << std::endl;
 		throw PresidentialPardonForm::GradeTooLowException();
-	else if(grades > 150)
-		throw AForm::GradeTooLowException();
-	std::cout << *this << std::endl;
+		return;
+	}
+	else if (executor.getGrade() > getGradex())
+	{
+		std::cout << "Cannot execute, form excute grade is too low." << std::endl;
+		throw PresidentialPardonForm::GradeTooLowException();
+		return;
+	}
+	std::cout << executor.getName() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 };
 
 

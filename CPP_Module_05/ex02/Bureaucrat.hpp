@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:32:44 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/05 15:33:36 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/06 22:39:41 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Bureaucrat
 		const std::string getName(void) const;
 		int getGrade(void) const;
 		void signForm(AForm &form);
+		void executeForm(AForm const & form) const;
 		~Bureaucrat();
 	
 	class GradeTooHighException : public std::exception

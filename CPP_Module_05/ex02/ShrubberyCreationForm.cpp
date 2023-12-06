@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 18:28:26 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/05 15:41:48 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/06 23:07:21 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,9 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
     	outputFile << "      |O|\n";
     	outputFile << "      |X|\n";
     	outputFile << "      |O|\n";
+		outputFile.close();
 
-
-        std::cout << "Shrubbery created successfully in " << executor.getName() << "_shrubbery." << std::endl;
+		std::cout << "Shrubbery created successfully in " << executor.getName() << "_shrubbery." << std::endl;
 	}
 	else
 		throw ShrubberyCreationForm::GradeTooLowException();

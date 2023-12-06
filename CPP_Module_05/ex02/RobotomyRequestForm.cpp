@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 18:29:45 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/03 21:40:24 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/06 20:07:18 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,26 @@ bool RobotomyRequestForm::getsign(void) const
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-	if(executor.getGrade() < grades || executor.getGrade() < gradex)
+	if (executor.getGrade() > grades || executor.getGrade() > gradex)
+	{
 		throw RobotomyRequestForm::GradeTooLowException();
-	else if(grades > 150)
-		throw AForm::GradeTooLowException();
-	std::cout << *this << std::endl;
+		std::cout << "Cannot execute, form not signed." << std::endl;
+		return;
+	}
+
+	std::cout << "Making drilling noises..." << std::endl;
+	
+	std::srand(std::time(0));
+	int result = std::rand() % 2;
+
+	if (result == 0)
+	{
+		std::cout << "Robotomy failed. " << executor.getName() << " is still the same." << std::endl;
+	}
+	else
+	{
+		std::cout << executor.getName() << " has been robotomized successfully!" << std::endl;
+	}
 };
 
 void RobotomyRequestForm::beSigned(Bureaucrat &br) const

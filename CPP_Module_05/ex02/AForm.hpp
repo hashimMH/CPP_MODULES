@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 17:42:40 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/03 21:35:00 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/06 19:58:36 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <fstream>
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 #include "Bureaucrat.hpp"
 class Bureaucrat;
 class AForm
