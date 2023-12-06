@@ -17,7 +17,7 @@ PresidentialPardonForm::PresidentialPardonForm() : grades(25), gradex(5)
 	std::cout << "default constructor called" << std::endl;
 };
 
-PresidentialPardonForm::PresidentialPardonForm(std::string nm, int grd): Name(nm), grades(25), gradex(5)
+PresidentialPardonForm::PresidentialPardonForm(std::string nm): Name(nm), grades(25), gradex(5)
 {
 	
 };
@@ -57,6 +57,25 @@ bool PresidentialPardonForm::getsign(void) const
 {
 	return this->sign;
 };
+
+void PresidentialPardonForm::beSigned(Bureaucrat &br) const
+{
+	if(br.getGrade() <= grades)
+		this->sign = true;
+	else
+		throw PresidentialPardonForm::GradeTooLowException();
+	std::cout << *this << std::endl;
+};
+
+void PresidentialPardonForm::execute(Bureaucrat const & executor) const
+{
+	if(executor.getGrade() < grades || executor.getGrade() < gradex)
+		throw PresidentialPardonForm::GradeTooLowException();
+	else if(grades > 150)
+		throw AForm::GradeTooLowException();
+	std::cout << *this << std::endl;
+};
+
 
 std::ostream& operator<<(std::ostream& os, const PresidentialPardonForm& op)
 {

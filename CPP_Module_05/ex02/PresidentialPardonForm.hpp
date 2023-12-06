@@ -22,15 +22,21 @@ class PresidentialPardonForm : public AForm
 {
 	private:
 		const std::string Name;
-		bool	sign;
+		mutable bool	sign;
 		const int		grades;
 		const int		gradex;
 	
 	public:
 		PresidentialPardonForm();
-		PresidentialPardonForm(std::string nm, int grd);
+		PresidentialPardonForm(std::string nm);
 		PresidentialPardonForm(const PresidentialPardonForm& cp);
 		PresidentialPardonForm& operator=(const PresidentialPardonForm& cp);
+		const std::string getName(void) const;
+		int getGrades(void) const;
+		int getGradex(void) const;
+		bool getsign(void) const;
+		void beSigned(Bureaucrat &br) const;
+		void execute(Bureaucrat const & executor) const;
 		~PresidentialPardonForm();
 	
 	class GradeTooHighException : public std::exception

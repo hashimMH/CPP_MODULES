@@ -17,7 +17,7 @@ int main()
 {
 	try
 	{
-		Bureaucrat a("hash", 10);
+		Bureaucrat a("hash", 5);
 		ShrubberyCreationForm fr("hashim");
 		fr.execute(a);
 	}

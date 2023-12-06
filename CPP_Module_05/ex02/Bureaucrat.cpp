@@ -44,7 +44,7 @@ Bureaucrat::~Bureaucrat()
 	std::cout << "Destructor called" << std::endl;
 };
 
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(AForm &form)
 {
 	
 	if(form.getsign() == true)

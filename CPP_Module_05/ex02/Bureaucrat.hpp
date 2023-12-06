@@ -16,7 +16,7 @@
 #include <iostream>
 #include "AForm.hpp"
 
-class Form;
+class AForm;
 class Bureaucrat
 {
 	private:
@@ -30,7 +30,7 @@ class Bureaucrat
 		Bureaucrat& operator=(const Bureaucrat& cp);
 		const std::string getName(void) const;
 		int getGrade(void) const;
-		void signForm(Form &form);
+		void signForm(AForm &form);
 		~Bureaucrat();
 	
 	class GradeTooHighException : public std::exception

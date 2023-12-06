@@ -59,14 +59,24 @@ bool RobotomyRequestForm::getsign(void) const
 	return this->sign;
 };
 
-void execute(Bureaucrat const & executor) const
+void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-	if(executor.grade < grades || executor < gradex)
+	if(executor.getGrade() < grades || executor.getGrade() < gradex)
 		throw RobotomyRequestForm::GradeTooLowException();
 	else if(grades > 150)
 		throw AForm::GradeTooLowException();
 	std::cout << *this << std::endl;
 };
+
+void RobotomyRequestForm::beSigned(Bureaucrat &br) const
+{
+	if(br.getGrade() <= grades)
+		this->sign = true;
+	else
+		throw RobotomyRequestForm::GradeTooLowException();
+	std::cout << *this << std::endl;
+};
+
 
 std::ostream& operator<<(std::ostream& os, const RobotomyRequestForm& op)
 {

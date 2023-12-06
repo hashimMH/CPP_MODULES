@@ -62,6 +62,16 @@ bool AForm::getsign(void) const
 {
 	return this->sign;
 };
+void AForm::execute(Bureaucrat const & executor) const
+{
+	if(executor.getGrade() < grades && executor.getGrade() < gradex)
+	{
+        std::cout << "Aform sign successfully " << std::endl;
+	}
+	else
+		throw AForm::GradeTooLowException();
+	std::cout << *this << std::endl;
+};
 
 std::ostream& operator<<(std::ostream& os, const AForm& op)
 {

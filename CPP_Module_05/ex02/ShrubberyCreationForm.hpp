@@ -22,7 +22,7 @@ class ShrubberyCreationForm : public AForm
 {
 	private:
 		const std::string Name;
-		bool	sign;
+		mutable bool	sign;
 		const int		grades;
 		const int		gradex;
 	
@@ -31,6 +31,12 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm(std::string nm);
 		ShrubberyCreationForm(const ShrubberyCreationForm& cp);
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& cp);
+		void beSigned(Bureaucrat &br) const;
+		const std::string getName(void) const;
+		int getGrades(void) const;
+		int getGradex(void) const;
+		bool getsign(void) const;
+		void execute(Bureaucrat const & executor) const;
 		~ShrubberyCreationForm();
 	
 	class GradeTooHighException : public std::exception

@@ -60,9 +60,9 @@ bool ShrubberyCreationForm::getsign(void) const
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-	if(executor.grade < grades && executor.grade < gradex)
+	if(executor.getGrade() < grades && executor.getGrade() < gradex)
 	{
-		std::ofstream outputFile(target + "_shrubbery");
+		std::ofstream outputFile(executor.getName() + "_shrubbery");
 
         if (!outputFile.is_open()) {
             std::cerr << "Error opening file." << std::endl;
@@ -70,22 +70,27 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
         }
 
         // Write ASCII trees to the file
-        outputFile << "    ccee88oo\n";
-        outputFile << " C8O8O8Q8PoOb\n";
-        outputFile << "obt8oo88O8oo\n";
-        outputFile << "  8ooO8oo8\n";
-        outputFile << "  88  88\n";
-        outputFile << "  88  88\n";
-        outputFile << "  88  88\n";
+    	outputFile << "\n";
+   		outputFile << "      *\n";
+    	outputFile << "     /|\\\n";
+    	outputFile << "    /*|O\\\n";
+    	outputFile << "   /*/|\\*\n";
+    	outputFile << "  /X/O|*\\\n";
+    	outputFile << " /*/X/|\\O\\\n";
+    	outputFile << "/O/X/0|*\\X\\\n";
+    	outputFile << "      |O|\n";
+    	outputFile << "      |X|\n";
+    	outputFile << "      |O|\n";
 
-        std::cout << "Shrubbery created successfully in " << target << "_shrubbery." << std::endl;
+
+        std::cout << "Shrubbery created successfully in " << executor.getName() << "_shrubbery." << std::endl;
 	}
 	else
-		throw RobotomyRequestForm::GradeTooLowException();
+		throw ShrubberyCreationForm::GradeTooLowException();
 	std::cout << *this << std::endl;
 };
 
-void ShrubberyCreationForm::beSigned(Bureaucrat &br)
+void ShrubberyCreationForm::beSigned(Bureaucrat &br) const
 {
 	if(br.getGrade() <= grades)
 		this->sign = true;

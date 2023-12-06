@@ -21,15 +21,21 @@ class RobotomyRequestForm : public AForm
 {
 	private:
 		const std::string	Name;
-		bool				sign;
+		mutable bool				sign;
 		const int			grades;
 		const int			gradex;
 		
 	public:
 		RobotomyRequestForm();
-		RobotomyRequestForm(std::string nm, int grd);
+		RobotomyRequestForm(std::string nm);
 		RobotomyRequestForm(const RobotomyRequestForm& cp);
 		RobotomyRequestForm& operator=(const RobotomyRequestForm& cp);
+		const std::string getName(void) const;
+		int getGrades(void) const;
+		int getGradex(void) const;
+		bool getsign(void) const;
+		void beSigned(Bureaucrat &br) const;
+		void execute(Bureaucrat const & executor) const;
 		~RobotomyRequestForm();
 	
 	class GradeTooHighException : public std::exception

@@ -13,6 +13,7 @@
 #ifndef AFORM_HPP
 # define AFORM_HPP
 
+#include <fstream>
 #include <iostream>
 #include "Bureaucrat.hpp"
 class Bureaucrat;
