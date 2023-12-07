@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 17:42:40 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/07 23:40:00 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/08 00:14:10 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class AForm
 		bool getsign(void) const;
 		void execute(Bureaucrat const & executor) const;
 		virtual void beSigned(Bureaucrat &br) const = 0;
-		~AForm();
+		virtual ~AForm();
 	
 	class GradeTooHighException : public std::exception
 	{

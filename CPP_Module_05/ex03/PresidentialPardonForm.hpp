@@ -1,44 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.hpp                                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 17:42:40 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/07 23:40:00 by hmohamed         ###   ########.fr       */
+/*   Created: 2023/11/23 18:28:39 by hmohamed          #+#    #+#             */
+/*   Updated: 2023/12/03 20:49:50 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AFORM_HPP
-# define AFORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 
-#include <fstream>
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 class Bureaucrat;
-class AForm
+
+class PresidentialPardonForm : public AForm
 {
 	private:
 		const std::string Name;
-		bool	sign;
+		mutable bool	sign;
 		const int		grades;
 		const int		gradex;
 	
 	public:
-		AForm();
-		AForm(std::string nm, int grd, int grdx);
-		AForm(const AForm& cp);
-		AForm& operator=(const AForm& cp);
+		PresidentialPardonForm();
+		PresidentialPardonForm(std::string nm);
+		PresidentialPardonForm(const PresidentialPardonForm& cp);
+		PresidentialPardonForm& operator=(const PresidentialPardonForm& cp);
 		const std::string getName(void) const;
 		int getGrades(void) const;
 		int getGradex(void) const;
 		bool getsign(void) const;
+		void beSigned(Bureaucrat &br) const;
 		void execute(Bureaucrat const & executor) const;
-		virtual void beSigned(Bureaucrat &br) const = 0;
-		~AForm();
+		~PresidentialPardonForm();
 	
 	class GradeTooHighException : public std::exception
 	{
@@ -57,6 +56,6 @@ class AForm
 	};
 };
 
-std::ostream& operator<<(std::ostream& os, const AForm& op);
+std::ostream& operator<<(std::ostream& os, const PresidentialPardonForm& op);
 
 #endif

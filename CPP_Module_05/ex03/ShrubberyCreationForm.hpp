@@ -1,44 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.hpp                                          :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 17:42:40 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/07 23:40:00 by hmohamed         ###   ########.fr       */
+/*   Created: 2023/11/23 17:43:06 by hmohamed          #+#    #+#             */
+/*   Updated: 2023/12/05 15:35:40 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AFORM_HPP
-# define AFORM_HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+# define SHRUBBERYCREATIONFORM_HPP
 
-#include <fstream>
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 class Bureaucrat;
-class AForm
+class AForm;
+class ShrubberyCreationForm : public AForm
 {
 	private:
 		const std::string Name;
-		bool	sign;
+		mutable bool	sign;
 		const int		grades;
 		const int		gradex;
 	
 	public:
-		AForm();
-		AForm(std::string nm, int grd, int grdx);
-		AForm(const AForm& cp);
-		AForm& operator=(const AForm& cp);
+		ShrubberyCreationForm();
+		ShrubberyCreationForm(std::string nm);
+		ShrubberyCreationForm(const ShrubberyCreationForm& cp);
+		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& cp);
+		void beSigned(Bureaucrat &br) const;
 		const std::string getName(void) const;
 		int getGrades(void) const;
 		int getGradex(void) const;
 		bool getsign(void) const;
 		void execute(Bureaucrat const & executor) const;
-		virtual void beSigned(Bureaucrat &br) const = 0;
-		~AForm();
+		~ShrubberyCreationForm();
 	
 	class GradeTooHighException : public std::exception
 	{
@@ -57,6 +56,6 @@ class AForm
 	};
 };
 
-std::ostream& operator<<(std::ostream& os, const AForm& op);
+std::ostream& operator<<(std::ostream& os, const ShrubberyCreationForm& op);
 
 #endif
