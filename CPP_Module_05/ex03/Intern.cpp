@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 23:52:46 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/07 23:53:37 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/08 14:58:19 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,6 @@ AForm *Intern::makeForm(const std::string form_to_create, const std::string targ
 		}
 	}
 
-	std::cout << "\033[33mIntern can not create a form called " << form_to_create << "\033[0m" << std::endl;
+	std::cout << "Intern can not create a form called " << form_to_create << std::endl;
 	return (NULL);
 }

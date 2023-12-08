@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 18:14:53 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/07 23:37:11 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/08 15:06:23 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ void PresidentialPardonForm::beSigned(Bureaucrat &br) const
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
-	std::cout <<"fuck"<< executor.getGrade() << std::endl;
 	if (executor.getGrade() > getGrades())
 	{
 		std::cout << "Cannot execute, form not signed." << std::endl;
