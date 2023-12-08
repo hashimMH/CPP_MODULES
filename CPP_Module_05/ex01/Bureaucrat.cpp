@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:32:38 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/11/23 16:20:58 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/08 16:49:32 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ Bureaucrat::Bureaucrat()
 Bureaucrat::Bureaucrat(std::string nm, int grd): Name(nm), grade(grd)
 {
 	if(grade < 1)
-		throw Bureaucrat::GradeTooHighException();
+		throw GradeTooHighException();
 	else if(grade > 150)
-		throw Bureaucrat::GradeTooLowException();
+		throw GradeTooLowException();
 	std::cout << *this << std::endl;
 };
 
@@ -50,7 +50,7 @@ void Bureaucrat::signForm(Form &form)
 	if(form.getsign() == true)
 		std::cout << getName() << " signed " << form.getName() << std::endl;
 	else
-		std::cout << getName() << " couldn’t sign" << form.getName() << " because" << " the" << std::endl;
+		std::cout << getName() << " couldn’t sign " << form.getName() << std::endl;
 };
 
 const	std::string Bureaucrat::getName(void) const
@@ -62,8 +62,38 @@ int Bureaucrat::getGrade(void) const
 	return this->grade;
 };
 
+void Bureaucrat::increment(void)
+{
+	this->grade--;
+	if(grade < 1)
+		throw GradeTooHighException();
+	else if(grade > 150)
+		throw GradeTooLowException();
+	std::cout << *this << std::endl;
+};
+
+void Bureaucrat::decrement(void)
+{
+	this->grade++;
+	if(grade < 1)
+		throw GradeTooHighException();
+	else if(grade > 150)
+		throw GradeTooLowException();
+	std::cout << *this << std::endl;
+};
+
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& op)
 {
 	os << op.getName() << ", bureaucrat grade " << op.getGrade() << ".";
 	return (os);
 };
+
+const char* GradeTooHighException::what() const throw()
+{
+    return "Grade Too High";
+}
+
+const char* GradeTooLowException::what() const throw()
+{
+	return "Grade Too Low";
+}
