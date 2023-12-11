@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 18:28:39 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/03 20:49:50 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/11 21:11:08 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,16 @@ class PresidentialPardonForm : public AForm
 		void execute(Bureaucrat const & executor) const;
 		~PresidentialPardonForm();
 	
-	class GradeTooHighException : public std::exception
-	{
-	  virtual const char* what() const throw()
-	  {
-	    return "Grade Too High";
-	  }
-	};
+};
 
-	class GradeTooLowException : public std::exception
-	{
-	  virtual const char* what() const throw()
-	  {
-	    return "Grade Too Low";
-	  }
-	};
+class GradeTooHighException : public std::exception
+{
+  virtual const char* what() const throw();
+};
+
+class GradeTooLowException : public std::exception
+{
+  virtual const char* what() const throw();
 };
 
 std::ostream& operator<<(std::ostream& os, const PresidentialPardonForm& op);

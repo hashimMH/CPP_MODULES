@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 18:28:26 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/06 23:07:21 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/11 21:08:45 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,3 +104,13 @@ std::ostream& operator<<(std::ostream& os, const ShrubberyCreationForm& op)
 	os << op.getName() << ", Form grade " << op.getGrades() << ".";
 	return (os);
 };
+
+const char* GradeTooHighException::what() const throw()
+{
+    return "Grade Too High";
+}
+
+const char* GradeTooLowException::what() const throw()
+{
+	return "Grade Too Low";
+}

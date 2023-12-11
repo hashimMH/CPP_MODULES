@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 18:29:45 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/06 20:07:18 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/11 21:08:41 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,3 +98,13 @@ std::ostream& operator<<(std::ostream& os, const RobotomyRequestForm& op)
 	os << op.getName() << ", Form grade " << op.getGrades() << ".";
 	return (os);
 };
+
+const char* GradeTooHighException::what() const throw()
+{
+    return "Grade Too High";
+}
+
+const char* GradeTooLowException::what() const throw()
+{
+	return "Grade Too Low";
+}

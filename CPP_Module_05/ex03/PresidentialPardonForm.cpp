@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 18:14:53 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/07 23:37:11 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/11 21:09:11 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,3 +92,13 @@ std::ostream& operator<<(std::ostream& os, const PresidentialPardonForm& op)
 	os << op.getName() << ", Form grade " << op.getGrades() << ".";
 	return (os);
 };
+
+const char* GradeTooHighException::what() const throw()
+{
+    return "Grade Too High";
+}
+
+const char* GradeTooLowException::what() const throw()
+{
+	return "Grade Too Low";
+}
