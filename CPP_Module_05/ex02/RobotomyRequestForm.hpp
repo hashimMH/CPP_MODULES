@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 18:28:46 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/11 21:11:16 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/11 21:14:58 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,6 @@ class RobotomyRequestForm : public AForm
 	
 };
 
-class GradeTooHighException : public std::exception
-{
-  virtual const char* what() const throw();
-};
-
-class GradeTooLowException : public std::exception
-{
-  virtual const char* what() const throw();
-};
 
 std::ostream& operator<<(std::ostream& os, const RobotomyRequestForm& op);
 

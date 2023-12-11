@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 18:29:45 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/11 21:08:41 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/11 21:19:10 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
 	if (executor.getGrade() > grades || executor.getGrade() > gradex)
 	{
-		throw RobotomyRequestForm::GradeTooLowException();
+		throw GradeTooLowException();
 		std::cout << "Cannot execute, form not signed." << std::endl;
 		return;
 	}
@@ -88,7 +88,7 @@ void RobotomyRequestForm::beSigned(Bureaucrat &br) const
 	if(br.getGrade() <= grades)
 		this->sign = true;
 	else
-		throw RobotomyRequestForm::GradeTooLowException();
+		throw GradeTooLowException();
 	std::cout << *this << std::endl;
 };
 

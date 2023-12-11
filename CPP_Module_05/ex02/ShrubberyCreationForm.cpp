@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 18:28:26 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/11 21:08:45 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/11 21:19:26 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 		std::cout << "Shrubbery created successfully in " << executor.getName() << "_shrubbery." << std::endl;
 	}
 	else
-		throw ShrubberyCreationForm::GradeTooLowException();
+		throw GradeTooLowException();
 	std::cout << *this << std::endl;
 };
 
@@ -95,7 +95,7 @@ void ShrubberyCreationForm::beSigned(Bureaucrat &br) const
 	if(br.getGrade() <= grades)
 		this->sign = true;
 	else
-		throw ShrubberyCreationForm::GradeTooLowException();
+		throw GradeTooLowException();
 	std::cout << *this << std::endl;
 };
 

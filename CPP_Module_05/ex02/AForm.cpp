@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 17:42:33 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/11 21:07:57 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/11 21:17:47 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ AForm::AForm() : grades(10), gradex(10)
 AForm::AForm(std::string nm, int grd, int grdx): Name(nm), grades(grd), gradex(grdx)
 {
 	if(grades < 1)
-		throw AForm::GradeTooHighException();
+		throw GradeTooHighException();
 	else if(grades > 150)
-		throw AForm::GradeTooLowException();
+		throw GradeTooLowException();
 	std::cout << *this << std::endl;
 };
 
@@ -69,7 +69,7 @@ void AForm::execute(Bureaucrat const & executor) const
         std::cout << "Aform sign successfully " << std::endl;
 	}
 	else
-		throw AForm::GradeTooLowException();
+		throw GradeTooLowException();
 	std::cout << *this << std::endl;
 };
 
