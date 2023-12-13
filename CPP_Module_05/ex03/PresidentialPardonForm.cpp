@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 18:14:53 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/11 21:09:11 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/13 16:20:52 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ PresidentialPardonForm::PresidentialPardonForm() : grades(25), gradex(5)
 	std::cout << "default constructor called" << std::endl;
 };
 
-PresidentialPardonForm::PresidentialPardonForm(std::string nm): Name(nm), grades(25), gradex(5)
+PresidentialPardonForm::PresidentialPardonForm(std::string nm):AForm(), Name(nm), grades(25), gradex(5)
 {
 	
 };
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& cp) : Name(cp.Name), grades(cp.grades), gradex(cp.gradex)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& cp) : AForm(), Name(cp.Name), grades(cp.grades), gradex(cp.gradex)
 {
 };
 
@@ -58,28 +58,27 @@ bool PresidentialPardonForm::getsign(void) const
 	return this->sign;
 };
 
-void PresidentialPardonForm::beSigned(Bureaucrat &br) const
+void PresidentialPardonForm::beSigned(Bureaucrat &br)
 {
 	if(br.getGrade() <= grades)
 		this->sign = true;
 	else
-		throw PresidentialPardonForm::GradeTooLowException();
+		throw GradeTooLowException();
 	std::cout << *this << std::endl;
 };
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
-	std::cout <<"fuck"<< executor.getGrade() << std::endl;
 	if (executor.getGrade() > getGrades())
 	{
 		std::cout << "Cannot execute, form not signed." << std::endl;
-		throw PresidentialPardonForm::GradeTooLowException();
+		throw GradeTooLowException();
 		return;
 	}
 	else if (executor.getGrade() > getGradex())
 	{
 		std::cout << "Cannot execute, form excute grade is too low." << std::endl;
-		throw PresidentialPardonForm::GradeTooLowException();
+		throw GradeTooLowException();
 		return;
 	}
 	std::cout << executor.getName() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
@@ -92,13 +91,3 @@ std::ostream& operator<<(std::ostream& os, const PresidentialPardonForm& op)
 	os << op.getName() << ", Form grade " << op.getGrades() << ".";
 	return (os);
 };
-
-const char* GradeTooHighException::what() const throw()
-{
-    return "Grade Too High";
-}
-
-const char* GradeTooLowException::what() const throw()
-{
-	return "Grade Too Low";
-}

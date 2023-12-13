@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:32:30 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/08 15:05:19 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/13 14:30:36 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int main()
 
 	try
 	{
-		Bureaucrat aaa("hash", 7);
+		Bureaucrat aaa("hash", 4);
 		PresidentialPardonForm frrr("hashim");
 		frrr.execute(aaa);
 	}

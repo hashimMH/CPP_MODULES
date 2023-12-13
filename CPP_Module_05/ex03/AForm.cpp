@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 17:42:33 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/11 21:08:53 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/13 16:26:29 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ AForm::AForm() : grades(10), gradex(10)
 AForm::AForm(std::string nm, int grd, int grdx): Name(nm), grades(grd), gradex(grdx)
 {
 	if(grades < 1)
-		throw AForm::GradeTooHighException();
+		throw GradeTooHighException();
 	else if(grades > 150)
-		throw AForm::GradeTooLowException();
+		throw GradeTooLowException();
 	std::cout << *this << std::endl;
 };
 
@@ -62,6 +62,7 @@ bool AForm::getsign(void) const
 {
 	return this->sign;
 };
+
 void AForm::execute(Bureaucrat const & executor) const
 {
 	if(executor.getGrade() < grades && executor.getGrade() < gradex)
@@ -69,7 +70,7 @@ void AForm::execute(Bureaucrat const & executor) const
         std::cout << "Aform sign successfully " << std::endl;
 	}
 	else
-		throw AForm::GradeTooLowException();
+		throw GradeTooLowException();
 	std::cout << *this << std::endl;
 };
 
@@ -78,14 +79,3 @@ std::ostream& operator<<(std::ostream& os, const AForm& op)
 	os << op.getName() << ", Form grade " << op.getGrades() << ".";
 	return (os);
 };
-
-const char* GradeTooHighException::what() const throw()
-{
-    return "Grade Too High";
-}
-
-const char* GradeTooLowException::what() const throw()
-{
-	return "Grade Too Low";
-}
-

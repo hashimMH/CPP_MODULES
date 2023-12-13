@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 17:43:06 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/11 21:15:02 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/13 14:34:36 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class ShrubberyCreationForm : public AForm
 {
 	private:
 		const std::string Name;
-		mutable bool	sign;
+		bool	sign;
 		const int		grades;
 		const int		gradex;
 	
@@ -31,12 +31,12 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm(std::string nm);
 		ShrubberyCreationForm(const ShrubberyCreationForm& cp);
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& cp);
-		void beSigned(Bureaucrat &br) const;
+		void beSigned(Bureaucrat &br);
 		const std::string getName(void) const;
 		int getGrades(void) const;
 		int getGradex(void) const;
 		bool getsign(void) const;
-		void execute(Bureaucrat const & executor) const;
+		void execute(Bureaucrat const & executor);
 		~ShrubberyCreationForm();
 	
 };

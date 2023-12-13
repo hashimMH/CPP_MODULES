@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 18:29:45 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/11 21:19:10 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/13 14:20:05 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ RobotomyRequestForm::RobotomyRequestForm() : grades(72), gradex(45)
 	std::cout << "default constructor called" << std::endl;
 };
 
-RobotomyRequestForm::RobotomyRequestForm(std::string nm): Name(nm), grades(72), gradex(45)
+RobotomyRequestForm::RobotomyRequestForm(std::string nm): AForm(), Name(nm), grades(72), gradex(45)
 {
 
 };
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& cp) : Name(cp.Name), grades(cp.grades), gradex(cp.gradex)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& cp) : AForm(), Name(cp.Name), grades(cp.grades), gradex(cp.gradex)
 {
 	
 };
@@ -59,7 +59,7 @@ bool RobotomyRequestForm::getsign(void) const
 	return this->sign;
 };
 
-void RobotomyRequestForm::execute(Bureaucrat const & executor) const
+void RobotomyRequestForm::execute(Bureaucrat const & executor)
 {
 	if (executor.getGrade() > grades || executor.getGrade() > gradex)
 	{
@@ -83,7 +83,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 	}
 };
 
-void RobotomyRequestForm::beSigned(Bureaucrat &br) const
+void RobotomyRequestForm::beSigned(Bureaucrat &br)
 {
 	if(br.getGrade() <= grades)
 		this->sign = true;
@@ -98,13 +98,3 @@ std::ostream& operator<<(std::ostream& os, const RobotomyRequestForm& op)
 	os << op.getName() << ", Form grade " << op.getGrades() << ".";
 	return (os);
 };
-
-const char* GradeTooHighException::what() const throw()
-{
-    return "Grade Too High";
-}
-
-const char* GradeTooLowException::what() const throw()
-{
-	return "Grade Too Low";
-}

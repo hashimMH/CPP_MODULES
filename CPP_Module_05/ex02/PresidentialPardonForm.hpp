@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 18:28:39 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/11 21:14:53 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/13 14:34:28 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class PresidentialPardonForm : public AForm
 {
 	private:
 		const std::string Name;
-		mutable bool	sign;
+		bool	sign;
 		const int		grades;
 		const int		gradex;
 	
@@ -35,8 +35,8 @@ class PresidentialPardonForm : public AForm
 		int getGrades(void) const;
 		int getGradex(void) const;
 		bool getsign(void) const;
-		void beSigned(Bureaucrat &br) const;
-		void execute(Bureaucrat const & executor) const;
+		void beSigned(Bureaucrat &br);
+		void execute(Bureaucrat const & executor);
 		~PresidentialPardonForm();
 	
 };

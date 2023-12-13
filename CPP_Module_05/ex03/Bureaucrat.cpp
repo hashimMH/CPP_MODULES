@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:32:38 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/08 16:53:17 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/13 14:25:01 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ Bureaucrat::~Bureaucrat()
 
 void Bureaucrat::signForm(AForm &form)
 {
-	std::cout << "fuckkkkkkkkk" << std::endl;
+	
 	if(form.getsign() == true)
 		std::cout << getName() << " signed " << form.getName() << std::endl;
 	else
-		std::cout << getName() << " couldn’t sign" << form.getName() << std::endl;
+		std::cout << getName() << " couldn’t sign" << form.getName() << " because" << " the" << std::endl;
 };
 
 const	std::string Bureaucrat::getName(void) const

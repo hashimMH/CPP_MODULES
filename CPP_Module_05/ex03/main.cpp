@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:32:30 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/08 01:07:41 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/13 16:29:03 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,39 @@ int main()
 	AForm *form4 = intern.makeForm("UnknownForm", "Target");
 
 	if (form1)
-		form1->execute(a);
+	{
+		try
+		{
+			form1->execute(a);
+		}
+		catch (std::exception &e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+	}
+		
 	if (form2)
-		form2->execute(a);
+	{
+		try
+		{
+			form2->execute(a);
+		}
+		catch (std::exception &e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+	}
 	if (form3)
-		form3->execute(a);
+	{
+		try
+		{
+			form3->execute(a);
+		}
+		catch (std::exception &e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+	}
 
 	delete form1;
 	delete form2;

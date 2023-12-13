@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 18:14:53 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/11 21:20:37 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/13 14:19:46 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ PresidentialPardonForm::PresidentialPardonForm() : grades(25), gradex(5)
 	std::cout << "default constructor called" << std::endl;
 };
 
-PresidentialPardonForm::PresidentialPardonForm(std::string nm): Name(nm), grades(25), gradex(5)
+PresidentialPardonForm::PresidentialPardonForm(std::string nm):AForm(), Name(nm), grades(25), gradex(5)
 {
 	
 };
@@ -58,7 +58,7 @@ bool PresidentialPardonForm::getsign(void) const
 	return this->sign;
 };
 
-void PresidentialPardonForm::beSigned(Bureaucrat &br) const
+void PresidentialPardonForm::beSigned(Bureaucrat &br)
 {
 	if(br.getGrade() <= grades)
 		this->sign = true;
@@ -67,7 +67,7 @@ void PresidentialPardonForm::beSigned(Bureaucrat &br) const
 	std::cout << *this << std::endl;
 };
 
-void PresidentialPardonForm::execute(Bureaucrat const & executor) const
+void PresidentialPardonForm::execute(Bureaucrat const & executor)
 {
 	if (executor.getGrade() > getGrades())
 	{
@@ -91,13 +91,3 @@ std::ostream& operator<<(std::ostream& os, const PresidentialPardonForm& op)
 	os << op.getName() << ", Form grade " << op.getGrades() << ".";
 	return (os);
 };
-
-const char* GradeTooHighException::what() const throw()
-{
-    return "Grade Too High";
-}
-
-const char* GradeTooLowException::what() const throw()
-{
-	return "Grade Too Low";
-}

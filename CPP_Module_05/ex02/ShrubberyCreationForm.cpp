@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 18:28:26 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/11 21:19:26 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/13 14:20:30 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ ShrubberyCreationForm::ShrubberyCreationForm() : grades(145), gradex(137)
 	std::cout << "default constructor called" << std::endl;
 };
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string nm): Name(nm), grades(145), gradex(137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string nm): AForm(), Name(nm), grades(145), gradex(137)
 {
 
 };
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& cp) : Name(cp.Name), grades(cp.grades), gradex(cp.gradex)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& cp) : AForm(), Name(cp.Name), grades(cp.grades), gradex(cp.gradex)
 {
 };
 
@@ -58,11 +58,15 @@ bool ShrubberyCreationForm::getsign(void) const
 	return this->sign;
 };
 
-void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+void ShrubberyCreationForm::execute(Bureaucrat const & executor)
 {
 	if(executor.getGrade() < grades && executor.getGrade() < gradex)
 	{
-		std::ofstream outputFile(executor.getName() + "_shrubbery");
+		std::ostringstream os;
+		std::string oss;
+		os << executor.getName() << "_shrubbery";
+		oss = os.str();
+		std::ofstream outputFile(oss.c_str());
 
         if (!outputFile.is_open()) {
             std::cerr << "Error opening file." << std::endl;
@@ -90,7 +94,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	std::cout << *this << std::endl;
 };
 
-void ShrubberyCreationForm::beSigned(Bureaucrat &br) const
+void ShrubberyCreationForm::beSigned(Bureaucrat &br)
 {
 	if(br.getGrade() <= grades)
 		this->sign = true;
@@ -104,13 +108,3 @@ std::ostream& operator<<(std::ostream& os, const ShrubberyCreationForm& op)
 	os << op.getName() << ", Form grade " << op.getGrades() << ".";
 	return (os);
 };
-
-const char* GradeTooHighException::what() const throw()
-{
-    return "Grade Too High";
-}
-
-const char* GradeTooLowException::what() const throw()
-{
-	return "Grade Too Low";
-}
