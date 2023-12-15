@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 13:32:44 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/13 14:22:21 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/15 20:08:57 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,18 @@ class Bureaucrat
 		void decrement(void);
 		void executeForm(AForm const & form) const;
 		~Bureaucrat();
+		
+		class GradeTooHighException : public std::exception
+		{
+		  virtual const char* what() const throw();
+		};
+
+		class GradeTooLowException : public std::exception
+		{
+		  virtual const char* what() const throw();
+		};
 	
 };
-
-class GradeTooHighException : public std::exception
-{
-  virtual const char* what() const throw();
-};
-
-class GradeTooLowException : public std::exception
-{
-  virtual const char* what() const throw();
-};
-
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& op);
 

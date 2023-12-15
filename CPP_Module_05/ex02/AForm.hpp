@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 17:42:40 by hmohamed          #+#    #+#             */
-/*   Updated: 2023/12/13 14:47:24 by hmohamed         ###   ########.fr       */
+/*   Updated: 2023/12/15 19:59:11 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,15 @@ class AForm
 		virtual void beSigned(Bureaucrat &br) = 0;
 		virtual ~AForm();
 	
+		class GradeTooHighException : public std::exception
+		{
+		  virtual const char* what() const throw();
+		};
+
+		class GradeTooLowException : public std::exception
+		{
+		  virtual const char* what() const throw();
+		};
 };
 
 std::ostream& operator<<(std::ostream& os, const AForm& op);
