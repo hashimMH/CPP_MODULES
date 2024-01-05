@@ -13,12 +13,23 @@
 #include "Serializer.hpp"
 
 
-int main(int argc, char *argv[])
-{
-	if (argc == 1) {
-		std::cout << "Error: no parameters\n" << "Usage: <program> <literal>" << std::endl;
-		return 1;
-	}
+int main() {
 
-	return 0;
+	// Create an instance of the Data structure
+    Data myData(42);
+
+    // Serialize the pointer to the Data object
+    uintptr_t serializedValue = Serializer::serialize(&myData);
+
+    // Deserialize the serialized value
+    Data* deserializedData = Serializer::deserialize(serializedValue);
+
+    // Check if the deserialized pointer is equal to the original pointer
+    if (deserializedData == &myData) {
+        std::cout << "Serialization and deserialization successful. Original and deserialized pointers are equal." << std::endl;
+    } else {
+        std::cout << "Serialization and deserialization failed. Pointers are not equal." << std::endl;
+    }
+
+    return 0;
 }

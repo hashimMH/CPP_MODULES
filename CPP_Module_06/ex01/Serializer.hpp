@@ -13,13 +13,20 @@
 #ifndef SERIALIZER_HPP
 # define SERIALIZER_HPP
 
-#include <iostream>
-#include <string>
-#include <cstdlib>
-#include <climits>
+# include <iostream>
+# include <stdint.h>
+
+
+struct Data 
+{
+	int n;
+
+	 Data(int val) : n(val) {}
+};
 
 class Serializer
 {
+	
 	public:
 		Serializer();
 		Serializer(const Serializer& cp);

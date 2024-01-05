@@ -70,9 +70,10 @@ void	ScalarConverter::convert(std::string str)
 
 	for (int i = 0; i < 6; ++i) {
 		if (str == specialTypes[i]) {
-			toChar = "imposible"; break;
+			toChar = "imposible"; 
+			break;
 		}
-	}
+	} 
 
 	if (toChar == "" && std::isprint(toInt)) {
 		toChar = "'";
