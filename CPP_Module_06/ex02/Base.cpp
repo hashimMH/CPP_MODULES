@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 11:22:54 by hmohamed          #+#    #+#             */
-/*   Updated: 2024/01/08 12:44:21 by hmohamed         ###   ########.fr       */
+/*   Updated: 2024/01/08 14:57:56 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ void Base::identify(Base* p)
 void Base::identify(Base& p)
 {
 	 try {
-        // Try dynamic_cast to identify the actual type
 		A& aRef = dynamic_cast<A&>(p);
 		(void)aRef;
         //dynamic_cast<A&>(p);

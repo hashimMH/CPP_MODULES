@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 17:48:09 by hmohamed          #+#    #+#             */
-/*   Updated: 2024/01/02 17:53:07 by hmohamed         ###   ########.fr       */
+/*   Updated: 2024/01/08 14:56:19 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,5 @@ class Serializer
 		static Data* deserialize(uintptr_t raw);
 		
 };
-
-
-
-std::ostream& operator<<(std::ostream& os, const Serializer& op);
 
 #endif
