@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 11:23:04 by hmohamed          #+#    #+#             */
-/*   Updated: 2024/01/08 14:58:35 by hmohamed         ###   ########.fr       */
+/*   Updated: 2024/01/15 12:58:16 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 int main() {
 
 	Base b;
-   std::srand(std::time(0));  // Seed for random number generation
+   std::srand(std::time(0));
 
     Base* obj = b.generate();
     b.identify(obj);
 
-    delete obj;  // Clean up dynamically allocated memory
+    delete obj;
 
     return 0;
 }
