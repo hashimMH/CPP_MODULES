@@ -6,14 +6,14 @@
 #    By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/27 22:29:08 by hmohamed          #+#    #+#              #
-#    Updated: 2023/12/27 22:34:10 by hmohamed         ###   ########.fr        #
+#    Updated: 2024/01/23 14:01:00 by hmohamed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = convert
 SRC = main.cpp    	    \
-		ScalarConverter.cpp    \
+		whatever.cpp    \
 
 OBJ = $(SRC:.cpp=.o)
 CXX = c++
