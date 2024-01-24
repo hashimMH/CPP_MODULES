@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.cpp                                       :+:      :+:    :+:   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/23 13:58:58 by hmohamed          #+#    #+#             */
-/*   Updated: 2024/01/23 14:00:54 by hmohamed         ###   ########.fr       */
+/*   Created: 2024/01/24 12:53:24 by hmohamed          #+#    #+#             */
+/*   Updated: 2024/01/24 12:53:26 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "whatever.hpp"
 
-whatever::whatever()
+#ifndef ITER_HPP
+# define ITER_HPP
+
+#include <iostream>
+
+template <typename T , typename F> 
+void iter(T* a, int n, F func)
 {
+    for (int i = 0; i < n; i++)
+                func(a[i]);
+}
 
-	std::cout << "default constructor called" << std::endl;
-};
-
-
-whatever::whatever(const whatever& cp) 
-{
-	*this = cp;
-};
-
-whatever& whatever::operator=(const whatever& cp)
-{
-	(void)cp;
-	return (*this);
-};
-
-whatever::~whatever()
-{
-	std::cout << "Destructor called" << std::endl;
-};
+template <typename T>
+void printing(const T& element) {
+    std::cout << element << " ";
+}
 
 
-
+#endif

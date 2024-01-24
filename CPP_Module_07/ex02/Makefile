@@ -5,13 +5,13 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/01/23 16:55:02 by hmohamed          #+#    #+#              #
-#    Updated: 2024/01/24 12:49:47 by hmohamed         ###   ########.fr        #
+#    Created: 2024/01/24 12:53:30 by hmohamed          #+#    #+#              #
+#    Updated: 2024/01/24 12:53:32 by hmohamed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = temp
+NAME = ARR
 SRC = main.cpp    	    \
 
 OBJ = $(SRC:.cpp=.o)

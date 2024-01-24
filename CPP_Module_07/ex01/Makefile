@@ -5,13 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/01/23 16:55:02 by hmohamed          #+#    #+#              #
-#    Updated: 2024/01/24 12:49:47 by hmohamed         ###   ########.fr        #
+#    Created: 2024/01/23 16:54:57 by hmohamed          #+#    #+#              #
+#    Updated: 2024/01/23 16:54:58 by hmohamed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = temp
+
+NAME = iter
 SRC = main.cpp    	    \
 
 OBJ = $(SRC:.cpp=.o)
