@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 16:54:48 by hmohamed          #+#    #+#             */
-/*   Updated: 2024/01/24 12:47:00 by hmohamed         ###   ########.fr       */
+/*   Updated: 2024/01/25 15:33:03 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,13 @@
 #include <iostream>
 
 template <typename T , typename F> 
-void iter(T* a, int n, F func)
+void iter(T& a, int n, F func)
 {
+	if ((int)(sizeof(a) / sizeof(a[0])) < n)
+	{
+		std::cout << "Out of range" << std::endl;
+		return ;
+	}
     for (int i = 0; i < n; i++)
                 func(a[i]);
 }
