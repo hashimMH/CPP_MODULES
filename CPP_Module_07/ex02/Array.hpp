@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:53:24 by hmohamed          #+#    #+#             */
-/*   Updated: 2024/01/25 16:19:17 by hmohamed         ###   ########.fr       */
+/*   Updated: 2024/01/26 15:34:02 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ template <typename T> class Array
 
 template <typename T> Array<T>::Array()
 {
-   ptr = nullptr;
+   ptr = NULL;
    sz = 0;
 }
 

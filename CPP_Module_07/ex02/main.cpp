@@ -6,11 +6,12 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:52:57 by hmohamed          #+#    #+#             */
-/*   Updated: 2024/01/25 16:19:06 by hmohamed         ###   ########.fr       */
+/*   Updated: 2024/01/26 15:38:19 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cstdlib>
 #include "Array.hpp"
 
 #define MAX_VAL 10
@@ -18,6 +19,8 @@ int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
+	int * a = new int();
+	std::cout << *a << std::endl;
     srand(time(NULL));
     for (int i = 0; i < MAX_VAL; i++)
     {
