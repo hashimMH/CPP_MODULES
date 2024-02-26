@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 03:27:48 by hmohamed          #+#    #+#             */
-/*   Updated: 2024/02/24 15:00:53 by hmohamed         ###   ########.fr       */
+/*   Updated: 2024/02/26 18:19:35 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,9 @@ public:
 	Span& operator=(const Span& cp);
 	~Span();
     void addNumber(int num);
-    template <typename InputIt>
-    void addNumbers(InputIt begin, InputIt end);
-    int shortestSpan() const;
-    int longestSpan() const;
+	void addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+	int shortestSpan() const;
+	int longestSpan() const;
 };
 
 #endif

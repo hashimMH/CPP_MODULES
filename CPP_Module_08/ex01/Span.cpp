@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:47:44 by hmohamed          #+#    #+#             */
-/*   Updated: 2024/02/24 15:09:14 by hmohamed         ###   ########.fr       */
+/*   Updated: 2024/02/26 18:18:44 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,36 +49,33 @@ void Span::addNumber(int num) {
     numbers.push_back(num);
 }
 
-template <typename InputIt>
-void Span::addNumbers(InputIt begin, InputIt end) {
-    size_t newCapacity = numbers.size() + std::distance(begin, end);
-    if (newCapacity > _N) {
-        throw std::out_of_range("Cannot add more numbers, capacity reached");
-    }
-    numbers.insert(numbers.end(), begin, end);
+void Span::addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	if (numbers.size() + std::distance(begin, end) > _N)
+	{
+		throw std::out_of_range("Cannot add more numbers, maximum limit reached.");
+	}
+	numbers.insert(numbers.end(), begin, end);
 }
 
-
-int Span::shortestSpan() const {
-    if (numbers.size() < 2) {
-        throw std::logic_error("Cannot find span with less than 2 numbers");
-    }
-    std::vector<int> sortedNumbers = numbers;
-    std::sort(sortedNumbers.begin(), sortedNumbers.end());
-    int minSpan = std::numeric_limits<int>::max();
-    for (size_t i = 1; i < sortedNumbers.size(); ++i) {
-        minSpan = std::min(minSpan, sortedNumbers[i] - sortedNumbers[i - 1]);
-    }
-    return minSpan;
+int Span::shortestSpan(void) const
+{
+	if (numbers.empty())
+		throw std::logic_error("Empty victor");
+	else if (numbers.size() < 2)
+		throw std::logic_error("Cannot find span with less than 2 numbers");
+	std::vector<int> copy = numbers;
+	std::sort(copy.begin(), copy.end(), std::less<int>());
+	return *(copy.begin());
 }
 
-int Span::longestSpan() const {
-    if (numbers.size() < 2) {
-        throw std::logic_error("Cannot find span with less than 2 numbers");
-    }
-    //int minMax = std::minmax_element(numbers.begin(), numbers.end());
-
-	 std::pair<std::vector<int>::const_iterator, std::vector<int>::const_iterator> minMax =
-        std::minmax_element(numbers.begin(), numbers.end());
-    return *minMax.second - *minMax.first;
+int Span::longestSpan(void) const
+{
+	if (numbers.empty())
+		throw std::logic_error("Empty victor");
+	else if (numbers.size() < 2)
+		throw std::logic_error("Cannot find span with less than 2 numbers");
+	std::vector<int> copy = numbers;
+	std::sort(copy.begin(), copy.end(), std::greater<int>());
+	return *(copy.begin());
 }
