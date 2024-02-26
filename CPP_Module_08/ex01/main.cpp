@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 03:27:29 by hmohamed          #+#    #+#             */
-/*   Updated: 2024/02/27 00:21:54 by hmohamed         ###   ########.fr       */
+/*   Updated: 2024/02/27 00:42:58 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int main( void )
 		// Adding numbers using iterators
 		std::vector<int> additionalNumbers;
 		additionalNumbers.push_back(6);
-		additionalNumbers.push_back(2);
-		additionalNumbers.push_back(8);
+		additionalNumbers.push_back(1);
+		additionalNumbers.push_back(60);
 
 		sp.addNumbers(additionalNumbers.begin(), additionalNumbers.end());
 
