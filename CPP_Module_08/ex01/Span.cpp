@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:47:44 by hmohamed          #+#    #+#             */
-/*   Updated: 2024/02/27 00:41:26 by hmohamed         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:46:09 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,26 +58,17 @@ void Span::addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterat
 	numbers.insert(numbers.end(), begin, end);
 }
 
-// int Span::shortestSpan(void) const
-// {
-// 	if (numbers.empty())
-// 		throw std::logic_error("Empty victor");
-// 	else if (numbers.size() < 2)
-// 		throw std::logic_error("Cannot find span with less than 2 numbers");
-// 	std::vector<int> copy = numbers;
-// 	std::sort(copy.begin(), copy.end(), std::less<int>());
-// 	return *(copy.begin());
-// }
-
 int Span::longestSpan(void) const
 {
+	int s;
 	if (numbers.empty())
 		throw std::logic_error("Empty victor");
 	else if (numbers.size() < 2)
 		throw std::logic_error("Cannot find span with less than 2 numbers");
 	std::vector<int> copy = numbers;
 	std::sort(copy.begin(), copy.end(), std::greater<int>());
-	return *(copy.begin());
+	s = *(copy.begin()) - *(--copy.end());
+	return (s);
 }
 
 int Span::shortestSpan() const
@@ -102,14 +93,3 @@ int Span::shortestSpan() const
 
 	return minSpan;
 }
-
-// int Span::longestSpan() const
-// {
-// 	if (numbers.empty())
-// 		throw std::logic_error("Empty victor");
-// 	else if (numbers.size() < 2)
-// 		throw std::logic_error("Cannot find span with less than 2 numbers");
-
-// 	return *std::max_element(numbers.begin(), numbers.end()) -
-// 		   *std::min_element(numbers.begin(), numbers.end());
-// }
