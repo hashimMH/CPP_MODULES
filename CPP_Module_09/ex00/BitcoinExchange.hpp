@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:42:26 by hmohamed          #+#    #+#             */
-/*   Updated: 2024/03/06 14:42:30 by hmohamed         ###   ########.fr       */
+/*   Updated: 2024/03/21 04:27:13 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,22 @@
 # define BITCOINEXCHANGE_HPP
 
 #include <iostream>
-#include <vector>
-#include<iterator>
-#include  <algorithm>
-#include <typeinfo>
+#include <fstream>
+#include <string>
+#include <map>
+
+using namespace std;
 
 class BitcoinExchange
 {
-	
+	private:
+
+	public:
+		BitcoinExchange();
+		BitcoinExchange(std::string inputFile);
+		~BitcoinExchange();
+
+		
 };
 
 

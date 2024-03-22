@@ -6,14 +6,14 @@
 #    By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/29 03:27:56 by hmohamed          #+#    #+#              #
-#    Updated: 2024/03/06 14:43:47 by hmohamed         ###   ########.fr        #
+#    Updated: 2024/03/21 04:17:48 by hmohamed         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = btc
 SRC = main.cpp    	    \
-		BitcoinExchange \
+		BitcoinExchange.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 CXX = c++
