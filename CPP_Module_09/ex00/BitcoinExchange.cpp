@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:42:21 by hmohamed          #+#    #+#             */
-/*   Updated: 2024/03/23 02:46:24 by hmohamed         ###   ########.fr       */
+/*   Updated: 2024/03/26 02:09:51 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ BitcoinExchange::BitcoinExchange()
 	
 };
 
-BitcoinExchange::BitcoinExchange(std::string inputFile)
+void BitcoinExchange::excute(std::string inputFile)
 {
 	try
 	{
@@ -91,6 +91,18 @@ BitcoinExchange::BitcoinExchange(std::string inputFile)
 		std::cerr << e.what() << '\n';
 	}
 
+};
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& cp)
+{
+	(void)cp;
+	std::cout << "Copy constructor called" << std::endl;
+};
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& cp)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	(void)cp;
+	return (*this);
 };
 
 BitcoinExchange::~BitcoinExchange()

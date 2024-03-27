@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:42:26 by hmohamed          #+#    #+#             */
-/*   Updated: 2024/03/26 02:05:50 by hmohamed         ###   ########.fr       */
+/*   Updated: 2024/03/26 02:49:38 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#ifndef BITCOINEXCHANGE_HPP
-# define BITCOINEXCHANGE_HPP
+#ifndef PMERGEME_HPP
+# define PMERGEME_HPP
 
 #include <iostream>
 #include <fstream>
@@ -21,16 +21,17 @@
 
 using namespace std;
 
-class BitcoinExchange
+class PmergeMe
 {
 	private:
-		BitcoinExchange();
-		BitcoinExchange(std::string inputFile);
-		BitcoinExchange(const BitcoinExchange& cp);
-		BitcoinExchange& operator=(const BitcoinExchange& cp);
-		~BitcoinExchange();
+		char *input;
+
 	public:
-		static void excute(std::string inputFile);
+		PmergeMe();
+		PmergeMe(std::string av);
+		PmergeMe(const PmergeMe& cp);
+		PmergeMe& operator=(const PmergeMe& cp);
+		~PmergeMe();
 
 		
 };

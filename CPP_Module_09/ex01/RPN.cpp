@@ -6,22 +6,47 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:42:21 by hmohamed          #+#    #+#             */
-/*   Updated: 2024/03/23 05:13:18 by hmohamed         ###   ########.fr       */
+/*   Updated: 2024/03/26 02:45:43 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
 
-void parseLine(const string& line, map<string, string>& keyValueMap) {
-   
-	//cout << line << endl;
-    size_t pos = line.find(',');
-    if (pos != string::npos) {
-        string key = line.substr(0, pos);
-        string value = line.substr(pos + 1);
-        keyValueMap[key] = value;
-    }
+void RPN::cal(char op)
+{
+	int res;
+	
+	if(!stk.empty())
+	{
+		second = stk.top();
+		stk.pop();
+		if(!stk.empty())
+		{
+			first = stk.top();
+			stk.pop();
+		}
+		else
+			second = 0;
+	}
+
+	if(op == '+')
+	{
+		res = first + second;
+	}
+	else if(op == '-')
+	{
+		res = first - second;
+	}
+	else if(op == '*')
+	{
+		res = first * second;
+	}
+	else if(op == '/')
+	{
+		res = first / second;
+	}
+	stk.push(res);
 }
 
 RPN::RPN()
@@ -31,29 +56,70 @@ RPN::RPN()
 
 RPN::RPN(std::string av)
 {
-	(void)first;
-	(void)second;
-    const char* input = av.c_str();
+    input = const_cast<char*>(av.c_str());
     
-    // Tokenize the input string
-    char* token = strtok(const_cast<char*>(input), " ");
-    
-    // Iterate through the tokens and push integers onto the stack
-    while (token != NULL) {
-        int num = atoi(token);
-        stk.push(num);
-        token = strtok(NULL, " ");
-    }
-    
-    // Print the elements of the stack
-    while (!stk.empty()) {
-        cout << stk.top() << " ";
-        stk.pop();
-    }
-    cout << endl;
+
 };
+
+RPN::RPN(const RPN& cp): input(cp.input)
+{
+	std::cout << "Copy constructor called" << std::endl;
+};
+
+RPN& RPN::operator=(const RPN& cp)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	if(this != &cp)
+	{
+		input = cp.input;
+	}
+	return (*this);
+};
+
 
 RPN::~RPN()
 {
 	
 };
+
+void RPN::excute(void)
+{
+	    // Tokenize the input string
+    char* token = strtok(input, " ");
+    
+	//cout << token +3 <<endl;
+    // Iterate through the tokens and push integers onto the stack
+    while (token != NULL) {
+		if(strlen(token) > 1)
+			throw std::logic_error ("Error");
+		if(! isdigit(token[0]) && token[0] != '/' 
+			&& token[0] != '+' &&token[0] != '*' &&token[0] != '-')
+		{
+			throw std::logic_error ("Error");
+		};
+		
+		if(isdigit(token[0]))
+		{
+			int num;
+        	num = atoi(token);
+			stk.push(num);
+		}
+		else
+		{
+			char z = token[0];
+			cal (z);
+			
+		}
+        token = strtok(NULL, " ");
+    }
+    
+    // Print the elements of the stack
+    if (stk.size() == 1) {
+        cout << stk.top();
+        stk.pop();
+    }
+	else{
+		throw std::logic_error ("Error");
+	}
+    cout << endl;
+}

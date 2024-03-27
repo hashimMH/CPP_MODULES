@@ -1,45 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RPN.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/06 14:42:26 by hmohamed          #+#    #+#             */
-/*   Updated: 2024/03/26 02:14:12 by hmohamed         ###   ########.fr       */
+/*   Created: 2024/01/29 03:27:29 by hmohamed          #+#    #+#             */
+/*   Updated: 2024/03/26 02:50:30 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "PmergeMe.hpp"
 
-#ifndef RPN_HPP
-# define RPN_HPP
-
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <map>
-
-using namespace std;
-
-class RPN
+int main(int ac, char **av) 
 {
-	private:
-		char *input;
-		int first;
-		int second;
-		stack<int> stk;
+	if(ac == 2)
+	{
 
-	public:
-		RPN();
-		RPN(std::string av);
-		RPN(const RPN& cp);
-		RPN& operator=(const RPN& cp);
-		~RPN();
-		void cal(char op);
-		void excute(void);
-
+		try
+		{
 		
-};
-
-
-#endif
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+			
+	}
+	return 0;
+}
