@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:42:26 by hmohamed          #+#    #+#             */
-/*   Updated: 2024/03/26 02:49:38 by hmohamed         ###   ########.fr       */
+/*   Updated: 2024/03/28 05:28:51 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,13 @@
 # define PMERGEME_HPP
 
 #include <iostream>
+#include <sstream>
 #include <fstream>
 #include <string>
+#include <algorithm>
+#include <iterator>
+#include<list>
+#include <utility>
 #include <map>
 
 using namespace std;
@@ -24,14 +29,13 @@ using namespace std;
 class PmergeMe
 {
 	private:
-		char *input;
-
-	public:
 		PmergeMe();
-		PmergeMe(std::string av);
 		PmergeMe(const PmergeMe& cp);
 		PmergeMe& operator=(const PmergeMe& cp);
 		~PmergeMe();
+
+	public:
+		static void excute(char **input);
 
 		
 };
