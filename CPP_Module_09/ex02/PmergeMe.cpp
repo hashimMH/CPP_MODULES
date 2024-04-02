@@ -6,11 +6,64 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:42:21 by hmohamed          #+#    #+#             */
-/*   Updated: 2024/03/28 06:17:44 by hmohamed         ###   ########.fr       */
+/*   Updated: 2024/04/02 07:17:25 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+
+void insert(list<pair<int, int> > &pstk, list <int> &stk)
+{
+	for (list<pair<int, int> >::iterator it = pstk.begin(); it != pstk.end(); ++it)
+	{
+		stk.push_back(it->first);
+	}
+	//stk.sort(); // Sort the list after inserting first elements
+
+	for (list<pair<int, int> >::iterator it = pstk.begin(); it != pstk.end(); ++it)
+	{
+		list<int>::iterator ins_pos = stk.begin();
+		while (ins_pos != stk.end() && *ins_pos < it->second)
+			++ins_pos;
+		stk.insert(ins_pos, it->second);
+	}
+}
+
+void merge(list<pair<int, int> > &stk, list<pair<int, int> > &left, list<pair<int, int> > &right)
+{
+	list<pair<int, int> >::iterator itl = left.begin();
+	list<pair<int, int> >::iterator itr = right.begin();
+	list<pair<int, int> >::iterator itstk = stk.begin();
+
+	while (itl != left.end() && itr != right.end())
+	{
+		if (itl->first <= itr->first)
+		{
+			*itstk = *itl;
+			++itl;
+		}
+		else
+		{
+			*itstk = *itr;
+			++itr;
+		}
+		++itstk;
+	}
+
+	while (itl != left.end())
+	{
+		*itstk = *itl;
+		++itl;
+		++itstk;
+	}
+
+	while (itr != right.end())
+	{
+		*itstk = *itr;
+		++itr;
+		++itstk;
+	}
+}
 
 void sort(list<pair<int, int> > &stk, list<pair<int, int> >::iterator half)
 {
@@ -19,13 +72,26 @@ void sort(list<pair<int, int> > &stk, list<pair<int, int> >::iterator half)
 		return ;
 
 	list<pair<int, int> > left(stk.begin(), half);
-	list<pair<int, int> > right(++half, stk.end());
+	list<pair<int, int> > right(half, stk.end());
 
-	for (list<pair<int, int> >::iterator its = left.begin(); its != left.end(); ++its)
-	{
-		cout << its->first << " h h h h " << its->second << endl;
-	}
-	cout<<"+++++++++++++++++++++++++++++++++++++++++"<<endl;
+	list<pair<int, int> >::iterator halfl = left.begin();
+	advance(halfl, left.size() / 2);
+	sort(left, halfl);
+
+	list<pair<int, int> >::iterator halfr = right.begin();
+	advance(halfr, right.size() / 2);
+	sort(right, halfr);
+
+	// for (list<pair<int, int> >::iterator its = left.begin(); its != left.end(); ++its)
+	// {
+	// 	cout << its->first << " h h h h " << its->second << endl;
+	// }
+	// cout<<"+++++++++++++++++++++++++++++++++++++++++"<<endl;
+	// for (list<pair<int, int> >::iterator its = right.begin(); its != right.end(); ++its)
+	// {
+	// 	cout << its->first << " f f f f " << its->second << endl;
+	// }
+	merge(stk, left, right);
 }
 
 PmergeMe::PmergeMe()
@@ -58,7 +124,7 @@ PmergeMe::~PmergeMe()
 
 void PmergeMe::excute(char **input)
 {
-	// int a = 0;
+	int odd = -1;
 	stringstream ss;
 	list<int> stk;
 	list<std::pair<int, int> > pstk;
@@ -73,24 +139,10 @@ void PmergeMe::excute(char **input)
 		stk.push_back(num);
 		//cout << tmp << endl;
 	}
-	// Tokenize the input string
-	// char **token = split()
-	// char *token = strtok(input, " ");
-
-	// cout << token +3 <<endl;
-	//  Iterate through the tokens and push integers onto the stack
-	// while (input[a] != NULL)
-	// {
-	// 	int num;
-	// 	num = atoi(const_cast<char *> input[a]);
-	// 	cout << num << " ";
-	// 	stk.push_back(num);
-	// 	a++;
-	// }
 
 	if(stk.size() % 2 != 0)
 	{
-		int odd = *stk.begin();
+		odd = *stk.begin();
 		cout << "the odd is : " << odd << endl;
 		stk.pop_front();
 	}
@@ -114,6 +166,24 @@ void PmergeMe::excute(char **input)
 	advance(half, pstk.size() / 2); 
 	sort(pstk , half);
 	
+
+	cout << "Pairs after sorting:" << endl;
+	for (list<pair<int, int> >::iterator it = pstk.begin(); it != pstk.end(); ++it)
+	{
+		cout << "Pair: (" << it->first << ", " << it->second << ")" << endl;
+	}
+	
+	stk.clear();
+	insert(pstk, stk);
+	if (odd >= 0)
+	{
+		list<int>::iterator ins_pos = stk.begin();
+		while (ins_pos != stk.end() && *ins_pos < odd)
+			++ins_pos;
+		stk.insert(ins_pos, odd);
+	}
+
+	cout<<"after inserting ++++++"<<endl;
 	for (list<int>::iterator its = stk.begin(); its != stk.end(); ++its)
 	{
 		cout << *its << " "<<endl;
