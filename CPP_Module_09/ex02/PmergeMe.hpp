@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:42:26 by hmohamed          #+#    #+#             */
-/*   Updated: 2024/03/28 05:28:51 by hmohamed         ###   ########.fr       */
+/*   Updated: 2024/04/04 00:39:44 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <sstream>
 #include <fstream>
 #include <string>
+#include <ctime>
+#include <vector>
 #include <algorithm>
 #include <iterator>
 #include<list>
@@ -36,6 +38,7 @@ class PmergeMe
 
 	public:
 		static void excute(char **input);
+		static void excutev(char **input);
 
 		
 };

@@ -6,12 +6,19 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:42:21 by hmohamed          #+#    #+#             */
-/*   Updated: 2024/03/26 02:09:51 by hmohamed         ###   ########.fr       */
+/*   Updated: 2024/04/04 02:00:34 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
+
+double stringToDouble(const string& str) {
+    double result;
+    istringstream iss(str);
+    iss >> result;
+    return result;
+}
 
 void parseLine(const string& line, map<string, string>& keyValueMap) {
    
@@ -34,7 +41,7 @@ void BitcoinExchange::excute(std::string inputFile)
 	try
 	{
 		 ifstream file1("data.csv");
-  		 ifstream file2(inputFile);
+  		 ifstream file2(inputFile.c_str());
 		  map<string, string> keyValueMap;
 
 		    if (!file1.is_open() || !file2.is_open()) 
@@ -66,7 +73,7 @@ void BitcoinExchange::excute(std::string inputFile)
 	        } else {
 	            key = line;
 	        }
-			vl = atof(val.c_str());
+			vl = stringToDouble(val);
 			if(val.empty())
 				cerr <<"Error: bad input => " << key <<endl;
 			else if (vl < 0 )
@@ -78,7 +85,7 @@ void BitcoinExchange::excute(std::string inputFile)
 		        map<string, string>::iterator it = keyValueMap.lower_bound(key);
 		        if (it != keyValueMap.end())
 				{
-		            cout << key << " => " << val << " = " << vl * atof(it->second.c_str()) << endl;
+		            cout << key << " => " << val << " = " << vl * stringToDouble(it->second) << endl;
 		        }
 			}
 	    }

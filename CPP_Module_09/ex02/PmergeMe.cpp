@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:42:21 by hmohamed          #+#    #+#             */
-/*   Updated: 2024/04/02 07:17:25 by hmohamed         ###   ########.fr       */
+/*   Updated: 2024/04/04 03:47:41 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,62 @@ void sort(list<pair<int, int> > &stk, list<pair<int, int> >::iterator half)
 	merge(stk, left, right);
 }
 
+void insertv(const vector<pair<int, int> >& pstk, vector<int>& stk) {
+    for (size_t i = 0; i < pstk.size(); ++i) {
+        stk.push_back(pstk[i].first);
+    }
+
+    for (size_t i = 0; i < pstk.size(); ++i) {
+        vector<int>::iterator ins_pos = lower_bound(stk.begin(), stk.end(), pstk[i].second);
+        stk.insert(ins_pos, pstk[i].second);
+    }
+}
+
+void mergev(vector<pair<int, int> >& stk, const vector<pair<int, int> >& left, const vector<pair<int, int> >& right) {
+    vector<pair<int, int> >::const_iterator itl = left.begin();
+    vector<pair<int, int> >::const_iterator itr = right.begin();
+    vector<pair<int, int> >::iterator itstk = stk.begin();
+
+    while (itl != left.end() && itr != right.end()) {
+        if (itl->first <= itr->first) {
+            *itstk = *itl;
+            ++itl;
+        } else {
+            *itstk = *itr;
+            ++itr;
+        }
+        ++itstk;
+    }
+
+    while (itl != left.end()) {
+        *itstk = *itl;
+        ++itl;
+        ++itstk;
+    }
+
+    while (itr != right.end()) {
+        *itstk = *itr;
+        ++itr;
+        ++itstk;
+    }
+}
+
+void sortv(vector<pair<int, int> >& stk, vector<pair<int, int> >::iterator half) {
+    if (stk.size() == 1)
+        return;
+
+    vector<pair<int, int> > left(stk.begin(), half);
+    vector<pair<int, int> > right(half, stk.end());
+
+    vector<pair<int, int> >::iterator halfl = left.begin() + left.size() / 2;
+    sortv(left, halfl);
+
+    vector<pair<int, int> >::iterator halfr = right.begin() + right.size() / 2;
+    sortv(right, halfr);
+
+    mergev(stk, left, right);
+}
+
 PmergeMe::PmergeMe()
 {
 	
@@ -124,6 +180,9 @@ PmergeMe::~PmergeMe()
 
 void PmergeMe::excute(char **input)
 {
+	clock_t start, end;
+	
+	start = clock();
 	int odd = -1;
 	stringstream ss;
 	list<int> stk;
@@ -135,6 +194,8 @@ void PmergeMe::excute(char **input)
 	{
 		int num;
 		num = atoi(const_cast<char *>(tmp.c_str()));
+		if(num < 0)
+			throw std::logic_error ("Error");
 		//cout << num << " ";
 		stk.push_back(num);
 		//cout << tmp << endl;
@@ -143,35 +204,39 @@ void PmergeMe::excute(char **input)
 	if(stk.size() % 2 != 0)
 	{
 		odd = *stk.begin();
-		cout << "the odd is : " << odd << endl;
 		stk.pop_front();
 	}
 
-	cout << "hihihihih" << endl;
-
 	// Iterate over the list and create pairs of adjacent numbers
-	for (list<int>::iterator itsd = stk.begin(); itsd != stk.end(); ++itsd)
+	list<int>::iterator itsd = stk.begin();
+	while(itsd != stk.end())
 	{
-		pstk.push_back(std::make_pair(*itsd, *(std::next(itsd))));
-		itsd = next(itsd);
+		list<int>::iterator nextIt = itsd;
+        ++nextIt;
+        if (nextIt != stk.end()) {
+            pstk.push_back(make_pair(*itsd, *nextIt));
+        }
+		++itsd;
+		++itsd;
 	}
+		
 
-	// Display the pairs
-	for (list<pair<int, int> >::iterator it = pstk.begin(); it != pstk.end(); ++it)
-	{
-		std::cout << "Pair: (" << it->first << ", " << it->second << ")" << std::endl;
-	}
+	// // Display the pairs
+	// for (list<pair<int, int> >::iterator it = pstk.begin(); it != pstk.end(); ++it)
+	// {
+	// 	std::cout << "Pair: (" << it->first << ", " << it->second << ")" << std::endl;
+	// }
 
 	list <pair<int ,int> >::iterator half = pstk.begin();
 	advance(half, pstk.size() / 2); 
 	sort(pstk , half);
 	
 
-	cout << "Pairs after sorting:" << endl;
-	for (list<pair<int, int> >::iterator it = pstk.begin(); it != pstk.end(); ++it)
-	{
-		cout << "Pair: (" << it->first << ", " << it->second << ")" << endl;
-	}
+	// cout << "Pairs after sorting:" << endl;
+	// for (list<pair<int, int> >::iterator it = pstk.begin(); it != pstk.end(); ++it)
+	// {
+	// 	cout << "Pair: (" << it->first << ", " << it->second << ")" << endl;
+	// }
 	
 	stk.clear();
 	insert(pstk, stk);
@@ -183,10 +248,88 @@ void PmergeMe::excute(char **input)
 		stk.insert(ins_pos, odd);
 	}
 
-	cout<<"after inserting ++++++"<<endl;
-	for (list<int>::iterator its = stk.begin(); its != stk.end(); ++its)
-	{
-		cout << *its << " "<<endl;
-	}
+	// cout<<"after inserting ++++++"<<endl;
+	// for (list<int>::iterator its = stk.begin(); its != stk.end(); ++its)
+	// {
+	// 	cout << *its << " ";
+	// }
+	// cout << endl;
+	
+	end = clock();
+
+	double timeTaken = ((double)(end - start) / CLOCKS_PER_SEC) * 1000;
+
+    cout << "Time to process a range of "<< stk.size()<<" elements with std::list : " << timeTaken << " us" << endl;
+}
+
+void PmergeMe::excutev(char **input)
+{
+	clock_t start, end;
+	
+	start = clock();
+	 int odd = -1;
+    stringstream ss;
+    vector<int> stk;
+    vector<pair<int, int> > pstk;
+
+    while (*input)
+        ss << *input++ << " ";
+    string tmp;
+    while (ss >> tmp) {
+        int num;
+        num = atoi(tmp.c_str());
+		if(num < 0)
+			throw std::logic_error ("Error");
+        stk.push_back(num);
+    }
+	 // Before sorting
+	 cout << "Before:  ";
+    for (size_t i = 0; i < stk.size(); ++i) {
+		if(i >= 5)
+		{
+			cout << "[..]";
+			break;
+		}
+        cout << stk[i] << " ";
+    }
 	cout << endl;
+    if (stk.size() % 2 != 0) {
+        odd = stk.front();
+        stk.erase(stk.begin());
+    }
+
+    // Iterate over the vector and create pairs of adjacent numbers
+    for (size_t i = 0; i < stk.size(); i += 2) {
+        pstk.push_back(make_pair(stk[i], stk[i + 1]));
+    }
+    // Sort the vector up to the middle
+    size_t half = pstk.size() / 2;
+    sortv(pstk, pstk.begin() + half);
+
+    stk.clear();
+    insertv(pstk, stk);
+
+    // Insert the odd number back into the vector
+    if (odd >= 0) {
+        vector<int>::iterator ins_pos = lower_bound(stk.begin(), stk.end(), odd);
+        stk.insert(ins_pos, odd);
+    }
+
+    cout << "After:   ";
+    for (size_t i = 0; i < stk.size(); ++i) {
+		if(i >= 5)
+		{
+			cout << "[..]";
+			break;
+		}
+        cout << stk[i] << " ";
+    }
+    cout << endl;
+
+	end = clock();
+
+	double timeTaken = ((double)(end - start) / CLOCKS_PER_SEC) * 1000;
+
+    cout << "Time to process a range of "<< stk.size()<<" elements with std::vector : " << timeTaken << " us" << endl;
+
 }

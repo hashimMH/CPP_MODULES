@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:42:26 by hmohamed          #+#    #+#             */
-/*   Updated: 2024/03/26 02:14:12 by hmohamed         ###   ########.fr       */
+/*   Updated: 2024/04/04 03:31:44 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 #include <fstream>
 #include <string>
 #include <map>
+#include <stack>
+#include <cstring>
+#include <cstdlib>
 
 using namespace std;
 

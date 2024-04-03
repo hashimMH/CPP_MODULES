@@ -6,7 +6,7 @@
 /*   By: hmohamed <hmohamed@student.42abudhabi.ae>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 03:27:29 by hmohamed          #+#    #+#             */
-/*   Updated: 2024/03/28 06:03:53 by hmohamed         ###   ########.fr       */
+/*   Updated: 2024/04/04 00:52:02 by hmohamed         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 int main(int ac, char **av) 
 {
+
 	if(ac >= 2)
 	{
 
 		try
 		{
-			PmergeMe::excute(++av);
+			PmergeMe::excutev(++av);
+			PmergeMe::excute(av);
 		}
 		catch(const std::exception& e)
 		{
